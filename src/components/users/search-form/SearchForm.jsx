@@ -17,7 +17,9 @@ export default function SearchForm(props) {
             <option value="1">One</option>
           </select>
           <div className="form-text">Please select one of the options.</div>
-          <div className="invalid-feedback">Please select a valid locality.</div>
+          <div className="invalid-feedback">
+            Please select a valid locality.
+          </div>
         </div>
         <div className="col-md-2">
           <label for="house number" className="form-label">
@@ -49,7 +51,8 @@ export default function SearchForm(props) {
             Please provide a valid phone number.
           </div>
         </div>
-        <div className="d-grid col-4 mx-auto">
+        <div className="d-grid col-8" />
+        <div className="d-grid col-4">
           <button type="submit" className="btn btn-primary btn-block">
             Search
           </button>
