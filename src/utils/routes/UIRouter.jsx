@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Switch } from "react-router-dom"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom"
 
 // Layouts
 import HomeRouter from "../../layouts/home/HomeRouter"
@@ -15,6 +20,9 @@ export default function UIRouter() {
         <HomeRouter exact path="/" component={Home} />
         <HomeRouter exact path="/user/search" component={Search} />
         <HomeRouter exact path="/user/pay" component={MakePayments} />
+        <Route>
+          <Redirect to="/" />
+        </Route>
       </Switch>
     </Router>
   )

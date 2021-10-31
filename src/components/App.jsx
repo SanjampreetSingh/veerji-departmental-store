@@ -1,4 +1,4 @@
-import UIRouter from "../utils/routes/ui-router"
+import UIRouter from "../utils/routes/UIRouter"
 
 export default function App() {
   return <UIRouter />
