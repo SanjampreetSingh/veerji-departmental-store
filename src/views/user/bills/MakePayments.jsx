@@ -13,7 +13,6 @@ export default function MakePayments(params) {
           <br />
           Amount: Amount
           <br />
-          
         </div>
       </div>
     </>
