@@ -6,6 +6,7 @@ export default function Search() {
     <div className="container mb-5">
       <div className="row p-4 pb-0 align-items-center rounded-3 border shadow-lg">
         <SearchCover />
+        <div className="border-top" />
         <SearchForm />
       </div>
     </div>

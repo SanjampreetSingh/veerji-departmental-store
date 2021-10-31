@@ -1,13 +1,13 @@
 export default function UserPaymentCard() {
   return (
     <div className="card text-center">
-      <div className="card-header bg-white fw-bold">Payment</div>
+      <h4 className="card-header bg-white fw-bold">Payment</h4>
       <div className="card-body">
-        <h1 className="card-title">
+        <h1 className="card-title my-4">
           ₹ <b>100</b>
         </h1>
-        <div className="border-top my-2" />
-        <button className="btn btn-primary">Make Payment</button>
+        <div className="border-top my-1" />
+        <button className="btn btn-primary my-1">Make Payment</button>
       </div>
     </div>
   )
