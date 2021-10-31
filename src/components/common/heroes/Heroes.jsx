@@ -19,7 +19,7 @@ export default function Heroes() {
           <button
             type="button"
             class="btn btn-primary btn-lg px-4 gap-3"
-            onClick={() => history.push("/user/bills")}
+            onClick={() => history.push("/user/search")}
           >
             Milk Subscriptions
           </button>

@@ -30,7 +30,7 @@ export default function Footer() {
             </Link>
           </li>
           <li class="nav-item">
-            <Link to="/user/bills" class="nav-link px-2 text-muted">
+            <Link to="/user/search" class="nav-link px-2 text-muted">
               Milk Subscriptions
             </Link>
           </li>
