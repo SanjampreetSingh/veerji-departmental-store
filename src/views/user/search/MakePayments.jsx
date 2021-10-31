@@ -1,9 +1,11 @@
+import SearchCover from "../../../components/users/search-cover/SearchCover"
+
 export default function MakePayments(params) {
   return (
     <>
       <div class="container mb-5">
         <div class="row p-4 pb-0 align-items-center rounded-3 border shadow-lg">
-          <h1 class="display-4 fw-bold lh-1">Milk Subscriptions</h1>
+          <SearchCover />
           <div className="border-top" />
           Name: Name
           <br />

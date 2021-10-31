@@ -1,10 +1,11 @@
 import HomeIcon from "../../../assets/icons/HomeIcon"
 import PhoneIcon from "../../../assets/icons/PhoneIcon"
 
-export default function Form(props) {
+export default function SearchForm(props) {
   return (
     <div className="container my-2 p-3">
       <form class="row g-3 needs-validation" novalidate>
+        <h3>Check your pending payments</h3>
         <div class="col-md-6">
           <label for="locality" class="form-label">
             Locality
