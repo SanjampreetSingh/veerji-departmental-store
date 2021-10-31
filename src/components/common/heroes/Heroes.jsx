@@ -7,7 +7,7 @@ export default function Heroes() {
   return (
     <div className="text-center">
       <div className="fs-2 d-block mx-auto mb-4">
-        <ShopIcon />
+        <ShopIcon width="72" height="57" />
       </div>
       <h1 className="display-5 fw-bold">Veerji Departmental Store</h1>
       <div className="col-lg-6 mx-auto">

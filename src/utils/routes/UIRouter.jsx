@@ -7,6 +7,7 @@ import {
 
 // Layouts
 import HomeRouter from "../../layouts/home/HomeRouter"
+import AdminLayout from "../../layouts/admin/AdminLayout"
 
 // views
 import Home from "../../views/home/Home"
@@ -22,6 +23,7 @@ export default function UIRouter() {
         <HomeRouter exact path="/user/search" component={Search} />
         <HomeRouter exact path="/user/pay" component={MakePayments} />
         <HomeRouter exact path="/admin/login" component={Login} />
+        <AdminLayout exact path="/admin/home" component={<h1>hi</h1>} />
         <Route>
           <Redirect to="/" />
         </Route>

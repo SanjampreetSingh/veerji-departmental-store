@@ -6,7 +6,7 @@ export default function MakePayments(params) {
   return (
     <>
       <div className="container mb-5">
-        <div className="row py-4 pb-0 align-items-center rounded-3 border shadow-lg">
+        <div className="row p-4 pb-0 align-items-center rounded-3 border shadow-lg">
           <SearchCover />
           <div className="border-top row" />
           <div className="my-3 row">
