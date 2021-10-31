@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom"
 
-import HomeLayout from "./home-layout"
+import HomeLayout from "./HomeLayout"
 
 export default function HomeRouter({ component: Component, ...rest }) {
   return (
