@@ -10,7 +10,10 @@ export default function Header() {
           className="navbar-brand col-md-3 col-lg-2 me-0 px-3"
           to="/admin/home"
         >
-          <ShopIcon height="19" width="19" /> &nbsp; Veerji Store
+          <span className="d-lg-none">
+            <ShopIcon height="19" width="19" />
+          </span>
+          <span className="d-none d-md-block"> Veerji Departmental Store</span>
         </Link>
         <button
           className="navbar-toggler position-absolute d-md-none collapsed"

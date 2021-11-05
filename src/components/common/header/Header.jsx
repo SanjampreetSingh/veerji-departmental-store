@@ -8,8 +8,11 @@ export default function Header() {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Link to="/">
-          <Navbar.Brand>
+          <Navbar.Brand className="d-lg-none">
             <ShopIcon />
+          </Navbar.Brand>
+          <Navbar.Brand className="d-none d-md-block">
+            Veerji Departmental Store
           </Navbar.Brand>
         </Link>
       </Container>
