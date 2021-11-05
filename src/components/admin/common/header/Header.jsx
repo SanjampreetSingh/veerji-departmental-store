@@ -1,28 +1,44 @@
 import { Link } from "react-router-dom"
-
 // internal
 import ShopIcon from "../../../../assets/icons/ShopIcon"
-import NavMenu from "./NavMenu"
-import UserDropdown from "./UserDropdown"
 
 export default function Header() {
   return (
-    <header>
-      <div className="px-3 py-2 bg-dark text-white">
-        <div className="container">
-          <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <Link
-              to="/admin/home"
-              className="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none"
-            >
-              <ShopIcon width="40" height="32" />
+    <>
+      <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <Link
+          className="navbar-brand col-md-3 col-lg-2 me-0 px-3"
+          to="/admin/home"
+        >
+          <ShopIcon height="19" width="19" /> &nbsp; Veerji Store
+        </Link>
+        <button
+          className="navbar-toggler position-absolute d-md-none collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#sidebarMenu"
+          aria-controls="sidebarMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <input
+          className="form-control form-control-dark w-100"
+          type="text"
+          placeholder="Search"
+          aria-label="Search"
+          spellCheck="false"
+          data-ms-editor="true"
+        />
+        <div className="navbar-nav">
+          <div className="nav-item text-nowrap">
+            <Link className="nav-link px-3" to="/">
+              Sign out
             </Link>
-
-            <NavMenu />
-            <UserDropdown />
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   )
 }

@@ -1,7 +1,7 @@
 export default function UserPaymentModal(params) {
   return (
     <div
-      class="modal fade"
+      className="modal fade"
       id="paymentModal"
       data-bs-backdrop="static"
       data-bs-keyboard="false"
@@ -9,18 +9,18 @@ export default function UserPaymentModal(params) {
       aria-labelledby="paymentModal"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header text-center">
+      <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-content">
+          <div className="modal-header text-center">
             <h4 className="modal-title bg-white fw-bold">Payment</h4>
             <button
               type="button"
-              class="btn-close"
+              className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">
+          <div className="modal-body">
             <p>Modal body text goes here.</p>
           </div>
         </div>

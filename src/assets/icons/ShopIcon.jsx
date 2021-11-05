@@ -4,8 +4,8 @@ export default function ShopIcon(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={width | "30"}
-      height={height | "30"}
+      width={width || "30"}
+      height={height || "30"}
       fill="currentColor"
       className="bi bi-shop"
       viewBox="0 0 16 16"

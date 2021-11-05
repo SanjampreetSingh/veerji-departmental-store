@@ -7,7 +7,7 @@ export default function SearchForm(props) {
       <form className="row g-3 needs-validation" novalidate>
         <h3>Check your pending payments</h3>
         <div className="col-md-6">
-          <label for="locality" className="form-label">
+          <label htmlFor="locality" className="form-label">
             Locality
           </label>
           <select className="form-select" aria-label="Select Locality">
@@ -22,7 +22,7 @@ export default function SearchForm(props) {
           </div>
         </div>
         <div className="col-md-2">
-          <label for="house number" className="form-label">
+          <label htmlFor="house number" className="form-label">
             House Number
           </label>
           <div className="input-group">
@@ -37,7 +37,7 @@ export default function SearchForm(props) {
           </div>
         </div>
         <div className="col-md-4">
-          <label for="phone number" className="form-label">
+          <label htmlFor="phone number" className="form-label">
             Phone Number
           </label>
           <div className="input-group">
