@@ -12,7 +12,7 @@ export default function UserPaymentModal(params) {
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header text-center">
-            <h4 className="modal-title  bg-white fw-bold">Payment</h4>
+            <h4 className="modal-title bg-white fw-bold">Payment</h4>
             <button
               type="button"
               class="btn-close"
@@ -22,18 +22,6 @@ export default function UserPaymentModal(params) {
           </div>
           <div class="modal-body">
             <p>Modal body text goes here.</p>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">
-              Save changes
-            </button>
           </div>
         </div>
       </div>
