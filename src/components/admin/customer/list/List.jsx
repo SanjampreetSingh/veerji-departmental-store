@@ -19,14 +19,14 @@ export default function List() {
             Sort by
           </label>
           <select className="form-select" aria-label="Sort by">
-            <option defaultValue disabled value="">
+            <option defaultValue disabled defaultValue="">
               Sort by
             </option>
-            <option value="1">Name: A-Z</option>
-            <option value="2">Name: Z-A</option>
-            <option value="3">Contact: A-Z</option>
-            <option value="4">Address: A-Z</option>
-            <option value="5">Payment: High to Low</option>
+            <option defaultValue="1">Name: A-Z</option>
+            <option defaultValue="2">Name: Z-A</option>
+            <option defaultValue="3">Contact: A-Z</option>
+            <option defaultValue="4">Address: A-Z</option>
+            <option defaultValue="5">Payment: High to Low</option>
           </select>
         </div>
         <div className="col">
@@ -34,11 +34,11 @@ export default function List() {
             Select locality
           </label>
           <select className="form-select" aria-label="Select locality">
-            <option defaultValue disabled value="">
+            <option defaultValue disabled defaultValue="">
               Open to select locality
             </option>
-            <option value=""></option>
-            <option value="1">A-Z</option>
+            <option defaultValue=""></option>
+            <option defaultValue="1">A-Z</option>
           </select>
         </div>
       </div>

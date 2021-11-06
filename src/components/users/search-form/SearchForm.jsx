@@ -11,10 +11,10 @@ export default function SearchForm(props) {
             Select locality
           </label>
           <select className="form-select" aria-label="Select Locality">
-            <option selected disabled value="">
+            <option disabled defaultValue="">
               Open to select locality
             </option>
-            <option value="1">One</option>
+            <option defaultValue="1">One</option>
           </select>
           <div className="form-text">Please select one of the options.</div>
           <div className="invalid-feedback">
