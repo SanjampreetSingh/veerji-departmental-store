@@ -8,7 +8,7 @@ export default function SearchForm(props) {
         <h3>Check your pending payments</h3>
         <div className="col-md-6">
           <label htmlFor="locality" className="form-label">
-            Select Locality
+            Select locality
           </label>
           <select className="form-select" aria-label="Select Locality">
             <option selected disabled value="">
@@ -23,13 +23,13 @@ export default function SearchForm(props) {
         </div>
         <div className="col-md-2">
           <label htmlFor="house number" className="form-label">
-            House Number
+            House number
           </label>
           <div className="input-group">
             <span className="input-group-text">
               <HomeIcon />
             </span>
-            <input type="number" className="form-control" min="0" max="9999" />
+            <input type="text" className="form-control" maxLength="10" />
           </div>
           <div className="form-text">Please enter house number.</div>
           <div className="invalid-feedback">

@@ -1,11 +1,18 @@
 import { Link } from "react-router-dom"
 
-export default function UserList() {
+export default function List() {
   return (
     <>
       <div className="row">
-        <div className="col" />
-        <div className="col" />
+        <div className="col">
+          <Link
+            to="/admin/customer/add"
+            className="btn btn-primary mt-4"
+            role="button"
+          >
+            Add new users
+          </Link>
+        </div>
         <div className="col" />
         <div className="col">
           <label htmlFor="Sorting" className="form-label">
@@ -17,9 +24,9 @@ export default function UserList() {
             </option>
             <option value="1">Name: A-Z</option>
             <option value="2">Name: Z-A</option>
-            <option value="3">Contact</option>
-            <option value="4">Address</option>
-            <option value="5">Payment</option>
+            <option value="3">Contact: A-Z</option>
+            <option value="4">Address: A-Z</option>
+            <option value="5">Payment: High to Low</option>
           </select>
         </div>
         <div className="col">
@@ -52,7 +59,7 @@ export default function UserList() {
               </td>
               <td>
                 <span
-                  class="d-inline-block"
+                  className="d-inline-block"
                   tabindex="0"
                   data-bs-toggle="popover"
                   title={"Call on " + "+91-12345-12345"}
@@ -65,7 +72,7 @@ export default function UserList() {
               </td>
               <td>
                 <span
-                  class="d-inline-block"
+                  className="d-inline-block"
                   tabindex="0"
                   data-bs-toggle="popover"
                   title="Find on google maps"

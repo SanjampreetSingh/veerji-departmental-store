@@ -1,5 +1,5 @@
-import UserList from "../../../components/admin/user-list/UserList"
+import List from "../../../components/admin/customer/list/List"
 
 export default function AdminCustomer(params) {
-  return <UserList />
+  return <List />
 }
