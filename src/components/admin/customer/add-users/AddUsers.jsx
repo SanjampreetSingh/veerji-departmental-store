@@ -50,6 +50,7 @@ export default function AddUsers() {
                   className="form-control"
                   name="customerTelephone"
                   id="customerTelephone"
+                  // @ts-ignore
                   maxLength="10"
                   aria-describedby="customerTelephone"
                   placeholder="Please enter customer telephone"
@@ -69,7 +70,12 @@ export default function AddUsers() {
                 <span className="input-group-text">
                   <HomeIcon />
                 </span>
-                <input type="text" className="form-control" maxLength="10" />
+                <input
+                  type="text"
+                  className="form-control"
+                  // @ts-ignore
+                  maxLength="10"
+                />
               </div>
               <div className="form-text">Please enter house number.</div>
               <div className="invalid-feedback">
