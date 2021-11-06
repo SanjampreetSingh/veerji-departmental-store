@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function UserList() {
   return (
     <>
@@ -7,8 +9,8 @@ export default function UserList() {
             <option defaultValue disabled>
               Sort by
             </option>
-            <option value="1">A-Z</option>
-            <option value="2">Z-A</option>
+            <option value="1">Name: A-Z</option>
+            <option value="2">Name: Z-A</option>
             <option value="3">Contact</option>
             <option value="4">Address</option>
             <option value="5">Payment</option>
@@ -19,6 +21,7 @@ export default function UserList() {
             <option defaultValue disabled>
               Location
             </option>
+            <option value=""></option>
             <option value="1">A-Z</option>
           </select>
         </div>
@@ -35,19 +38,37 @@ export default function UserList() {
           </thead>
           <tbody>
             <tr>
-              <td scope="row">User 1</td>
-              <td>
-                <a href="tel:+91-12345-12345" target="_blank">
-                  +91-12345-12345
-                </a>
+              <td scope="row">
+                <Link to={"/admin/user/details/" + "User 1"}>User 1</Link>
               </td>
               <td>
-                <a
-                  href="http://maps.google.com/?q=Some Address to visit"
-                  target="_blank"
+                <span
+                  class="d-inline-block"
+                  tabindex="0"
+                  data-bs-toggle="popover"
+                  title={"Call on " + "+91-12345-12345"}
+                  data-bs-trigger="hover focus"
                 >
-                  Some Address to visit
-                </a>
+                  <a href="tel:+91-12345-12345" target="_blank">
+                    +91-12345-12345
+                  </a>
+                </span>
+              </td>
+              <td>
+                <span
+                  class="d-inline-block"
+                  tabindex="0"
+                  data-bs-toggle="popover"
+                  title="Find on google maps"
+                  data-bs-trigger="hover focus"
+                >
+                  <a
+                    href="http://maps.google.com/?q=Some Address to visit"
+                    target="_blank"
+                  >
+                    Some Address to visit
+                  </a>
+                </span>
               </td>
               <td>
                 ₹ <b>100</b>
