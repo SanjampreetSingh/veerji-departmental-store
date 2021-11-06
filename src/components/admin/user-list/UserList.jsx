@@ -4,9 +4,15 @@ export default function UserList() {
   return (
     <>
       <div className="row">
+        <div className="col" />
+        <div className="col" />
+        <div className="col" />
         <div className="col">
+          <label htmlFor="Sorting" className="form-label">
+            Sort by
+          </label>
           <select className="form-select" aria-label="Sort by">
-            <option defaultValue disabled>
+            <option defaultValue disabled value="">
               Sort by
             </option>
             <option value="1">Name: A-Z</option>
@@ -17,9 +23,12 @@ export default function UserList() {
           </select>
         </div>
         <div className="col">
-          <select className="form-select" aria-label="Address">
-            <option defaultValue disabled>
-              Location
+          <label htmlFor="locality" className="form-label">
+            Select locality
+          </label>
+          <select className="form-select" aria-label="Select locality">
+            <option defaultValue disabled value="">
+              Open to select locality
             </option>
             <option value=""></option>
             <option value="1">A-Z</option>

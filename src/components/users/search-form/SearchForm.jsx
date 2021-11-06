@@ -8,11 +8,11 @@ export default function SearchForm(props) {
         <h3>Check your pending payments</h3>
         <div className="col-md-6">
           <label htmlFor="locality" className="form-label">
-            Locality
+            Select Locality
           </label>
           <select className="form-select" aria-label="Select Locality">
             <option selected disabled value="">
-              Open this select menu
+              Open to select locality
             </option>
             <option value="1">One</option>
           </select>
