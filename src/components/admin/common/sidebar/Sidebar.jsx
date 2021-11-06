@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function Sidebar() {
   return (
     <nav
@@ -7,10 +9,10 @@ export default function Sidebar() {
       <div className="position-sticky pt-3">
         <ul className="nav flex-column">
           <li className="nav-item">
-            <a
+            <Link
               className="nav-link active"
               aria-current="page"
-              href="https://getbootstrap.com/docs/5.1/examples/dashboard/#"
+              to="/admin/home"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +31,7 @@ export default function Sidebar() {
                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
               </svg>
               Dashboard
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
             <a

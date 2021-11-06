@@ -29,7 +29,7 @@ export default function Header() {
         <input
           className="form-control form-control-dark w-100"
           type="text"
-          placeholder="Search"
+          placeholder="Search customers by name, contact and address"
           aria-label="Search"
           spellCheck="false"
           data-ms-editor="true"

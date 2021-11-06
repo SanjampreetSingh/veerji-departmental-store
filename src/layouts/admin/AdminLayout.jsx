@@ -7,9 +7,11 @@ export default function AdminLayout(props) {
       <Header />
       <div className="container-fluid">
         <div className="row">
-          <div className="px-4 py-5 mb-5 ">
-            <Sidebar />
-            {props.children}
+          <Sidebar />
+          <div className="py-5 mb-5">
+            <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+              {props.children}
+            </main>
           </div>
         </div>
       </div>
