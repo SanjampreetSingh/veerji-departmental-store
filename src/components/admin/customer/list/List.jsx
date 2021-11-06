@@ -42,7 +42,7 @@ export default function List() {
           </select>
         </div>
       </div>
-      <div className="table-responsive">
+      <div className="table-responsive border-top mt-2">
         <table className="table">
           <thead>
             <tr>
@@ -55,7 +55,7 @@ export default function List() {
           <tbody>
             <tr>
               <td scope="row">
-                <Link to={"/admin/user/details/" + "User 1"}>User 1</Link>
+                <Link to={"/admin/customer/details/"}>User 1</Link>
               </td>
               <td>
                 <span
