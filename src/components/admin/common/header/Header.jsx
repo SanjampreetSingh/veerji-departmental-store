@@ -13,7 +13,7 @@ export default function Header() {
           <span className="d-lg-none">
             <ShopIcon height="19" width="19" />
           </span>
-          <span className="d-none d-md-block"> Veerji Departmental Store</span>
+          <span className="d-none d-md-block">Veerji Departmental Store</span>
         </Link>
         <button
           className="navbar-toggler position-absolute d-md-none collapsed"
@@ -29,7 +29,7 @@ export default function Header() {
         <input
           className="form-control form-control-dark w-100"
           type="text"
-          placeholder="Search customers by name, contact and address"
+          placeholder="Search customers by name, house number and contact"
           aria-label="Search"
           spellCheck="false"
           data-ms-editor="true"
