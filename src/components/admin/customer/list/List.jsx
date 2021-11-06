@@ -60,7 +60,7 @@ export default function List() {
               <td>
                 <span
                   className="d-inline-block"
-                  tabindex="0"
+                  tabIndex="0"
                   data-bs-toggle="popover"
                   title={"Call on " + "+91-12345-12345"}
                   data-bs-trigger="hover focus"
@@ -73,7 +73,7 @@ export default function List() {
               <td>
                 <span
                   className="d-inline-block"
-                  tabindex="0"
+                  tabIndex="0"
                   data-bs-toggle="popover"
                   title="Find on google maps"
                   data-bs-trigger="hover focus"
@@ -89,12 +89,6 @@ export default function List() {
               <td>
                 ₹ <b>100</b>
               </td>
-            </tr>
-            <tr>
-              <td scope="row"></td>
-              <td></td>
-              <td></td>
-              <td></td>
             </tr>
           </tbody>
         </table>

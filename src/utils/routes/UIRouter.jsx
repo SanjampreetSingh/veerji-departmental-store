@@ -17,7 +17,7 @@ import Login from "../../views/login/Login"
 // admin view
 import AdminHome from "../../views/admin/admin-home/AdminHome"
 import AdminCustomer from "../../views/admin/admin-customer/AdminCustomer"
-import AddCustomer from "../../views/admin/add-customer/AddCustomer"
+import CustomerAdd from "../../views/admin/customer/add/CustomerAdd"
 
 export default function UIRouter() {
   return (
@@ -29,7 +29,7 @@ export default function UIRouter() {
         <HomeRouter exact path="/admin/login" component={Login} />
         <AdminRouter exact path="/admin/home" component={AdminHome} />
         <AdminRouter exact path="/admin/customer" component={AdminCustomer} />
-        <AdminRouter exact path="/admin/customer/add" component={AddCustomer} />
+        <AdminRouter exact path="/admin/customer/add" component={CustomerAdd} />
         <Route>
           <Redirect to="/" />
         </Route>

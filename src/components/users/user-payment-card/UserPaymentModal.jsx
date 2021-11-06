@@ -5,7 +5,7 @@ export default function UserPaymentModal(params) {
       id="paymentModal"
       data-bs-backdrop="static"
       data-bs-keyboard="false"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="paymentModal"
       aria-hidden="true"
     >
