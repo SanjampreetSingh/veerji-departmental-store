@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 // internal component
 import CustomerIcon from "../../../../assets/icons/CustomerIcon"
 import FeatherHomeIcon from "../../../../assets/icons/FeatherHomeIcon"
+import GeoLocationIcon from "../../../../assets/icons/GeoLocationIcon"
 
 export default function Sidebar() {
   return (
@@ -25,6 +26,12 @@ export default function Sidebar() {
             <Link className="nav-link" to="/admin/customer">
               <CustomerIcon />
               Customers
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/admin/locality">
+              <GeoLocationIcon />
+              Locality
             </Link>
           </li>
         </ul>

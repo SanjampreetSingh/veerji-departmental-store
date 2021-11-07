@@ -8,7 +8,7 @@ export default function AddUsers() {
       <div className="container">
         <div className="py-5 text-center">
           <CustomerIcon width="72" height="57" />
-          <h2>Please enter new customer</h2>
+          <h2>Please add new customer</h2>
         </div>
         <form>
           <div className="mb-3 row">
@@ -50,7 +50,6 @@ export default function AddUsers() {
                   className="form-control"
                   name="customerTelephone"
                   id="customerTelephone"
-                  // @ts-ignore
                   maxLength="10"
                   aria-describedby="customerTelephone"
                   placeholder="Please enter customer telephone"
