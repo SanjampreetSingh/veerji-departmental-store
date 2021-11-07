@@ -1,3 +1,4 @@
+import React from "react"
 import { Link } from "react-router-dom"
 
 export default function List() {
@@ -19,7 +20,7 @@ export default function List() {
             Sort by
           </label>
           <select className="form-select" aria-label="Sort by">
-            <option defaultValue disabled defaultValue="">
+            <option defaultValue="" disabled>
               Sort by
             </option>
             <option defaultValue="1">Name: A-Z</option>
@@ -34,7 +35,7 @@ export default function List() {
             Select locality
           </label>
           <select className="form-select" aria-label="Select locality">
-            <option defaultValue disabled defaultValue="">
+            <option disabled defaultValue="">
               Open to select locality
             </option>
             <option defaultValue=""></option>
@@ -49,7 +50,7 @@ export default function List() {
               <th>Name</th>
               <th>Contact</th>
               <th>Address</th>
-              <th>Payment</th>
+              <th>Pending Payment</th>
             </tr>
           </thead>
           <tbody>
@@ -60,7 +61,6 @@ export default function List() {
               <td>
                 <span
                   className="d-inline-block"
-                  tabIndex="0"
                   data-bs-toggle="popover"
                   title={"Call on " + "+91-12345-12345"}
                   data-bs-trigger="hover focus"
@@ -73,7 +73,6 @@ export default function List() {
               <td>
                 <span
                   className="d-inline-block"
-                  tabIndex="0"
                   data-bs-toggle="popover"
                   title="Find on google maps"
                   data-bs-trigger="hover focus"
