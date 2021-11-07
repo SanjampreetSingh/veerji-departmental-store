@@ -1,7 +1,7 @@
 import Navbar from "react-bootstrap/Navbar"
 import Container from "react-bootstrap/Container"
 import { Link } from "react-router-dom"
-import ShopIcon from "../../../assets/icons/ShopIcon"
+import CartIcon from "../../../assets/icons/CartIcon"
 
 export default function Header() {
   return (
@@ -9,7 +9,7 @@ export default function Header() {
       <Container>
         <Link to="/">
           <Navbar.Brand className="d-lg-none">
-            <ShopIcon />
+            <CartIcon />
           </Navbar.Brand>
           <Navbar.Brand className="d-none d-md-block">
             Veerji Departmental Store

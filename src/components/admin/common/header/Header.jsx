@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 // internal
-import ShopIcon from "../../../../assets/icons/ShopIcon"
+import CartIcon from "../../../../assets/icons/CartIcon"
 
 export default function Header() {
   return (
@@ -11,7 +11,7 @@ export default function Header() {
           to="/admin/home"
         >
           <span className="d-lg-none">
-            <ShopIcon height="19" width="19" />
+            <CartIcon height="19" width="19" />
           </span>
           <span className="d-none d-md-block">Veerji Departmental Store</span>
         </Link>

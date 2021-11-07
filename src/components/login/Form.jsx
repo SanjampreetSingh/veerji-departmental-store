@@ -1,10 +1,10 @@
-import ShopIcon from "../../assets/icons/ShopIcon"
+import CartIcon from "../../assets/icons/CartIcon"
 
 export default function Form() {
   return (
     <form>
       <div className="mb-4">
-        <ShopIcon width="72" height="57" />
+        <CartIcon width="72" height="57" />
       </div>
       <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
 

@@ -30,6 +30,7 @@ export default function UIRouter() {
         <HomeRouter exact path="/user/search" component={Search} />
         <HomeRouter exact path="/user/pay" component={MakePayments} />
         <HomeRouter exact path="/admin/login" component={Login} />
+        <AdminRouter exact path="/admin" component={AdminHome} />
         <AdminRouter exact path="/admin/home" component={AdminHome} />
         <AdminRouter exact path="/admin/customer" component={AdminCustomer} />
         <AdminRouter exact path="/admin/customer/add" component={CustomerAdd} />
