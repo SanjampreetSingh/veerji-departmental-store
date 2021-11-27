@@ -4,7 +4,7 @@ import * as actionTypes from "./actions"
 const token = ""
 let headers = {}
 const instance = axios.create({
-  baseURL: `${process.env.REACT_APP_API_KEY}`,
+  baseURL: `${process.env.REACT_APP_API_URL}`,
 })
 
 switch (process.env.NODE_ENV) {

@@ -12,4 +12,4 @@ export const userPendingPayment = (locality, houseNumber, phoneNumber) =>
         phoneNumber
     )
 
-export const getAllLocality = () => ApiCall(actionTypes.GET, "locality")
+export const getAllLocality = () => ApiCall(actionTypes.GET, "locality/")

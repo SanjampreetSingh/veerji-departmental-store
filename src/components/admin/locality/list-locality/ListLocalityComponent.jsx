@@ -1,7 +1,9 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-export default function ListLocalityComponent() {
+export default function ListLocalityComponent(props) {
+  let { locality } = props
+
   return (
     <>
       <div className="row">
@@ -39,24 +41,26 @@ export default function ListLocalityComponent() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td scope="row">1</td>
-              <td>
-                <span
-                  className="d-inline-block"
-                  data-bs-toggle="popover"
-                  title="Find on google maps"
-                  data-bs-trigger="hover focus"
-                >
-                  <a
-                    href="http://maps.google.com/?q=Some Address to visit"
-                    target="_blank"
+            {locality.map((data, index) => (
+              <tr key={index}>
+                <td scope="row">{index + 1}</td>
+                <td>
+                  <span
+                    className="d-inline-block"
+                    data-bs-toggle="popover"
+                    title="Find on google maps"
+                    data-bs-trigger="hover focus"
                   >
-                    Some Address to visit
-                  </a>
-                </span>
-              </td>
-            </tr>
+                    <a
+                      href={"http://maps.google.com/?q=" + data.name}
+                      target="_blank"
+                    >
+                      {data.name}
+                    </a>
+                  </span>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
 
