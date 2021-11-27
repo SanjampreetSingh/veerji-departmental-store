@@ -4,14 +4,14 @@ import * as actionTypes from "./actions"
 const token = ""
 let headers = {}
 const instance = axios.create({
-  baseURL: `${process.env.REACT_APP_API_URL}`,
+  baseURL: `${process.env.REACT_APP_API_KEY}`,
 })
 
 switch (process.env.NODE_ENV) {
   case "development":
     headers = {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      // Authorization: `Bearer ${token}`,
     }
 
   default:

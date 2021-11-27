@@ -20,7 +20,7 @@ import AdminCustomer from "../../views/admin/admin-customer/AdminCustomer"
 import CustomerAdd from "../../views/admin/customer/add/CustomerAdd"
 import CustomerDetails from "../../views/admin/customer/details/CustomerDetails"
 import AddLocality from "../../components/admin/locality/add-locality/AddLocality"
-import ListLocality from "../../components/admin/locality/list-locality/ListLocality"
+import ListLocality from "../../containers/admin/locality/list-locality/ListLocality"
 
 export default function UIRouter() {
   return (

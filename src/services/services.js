@@ -11,3 +11,5 @@ export const userPendingPayment = (locality, houseNumber, phoneNumber) =>
         "&phn=" +
         phoneNumber
     )
+
+export const getAllLocality = () => ApiCall(actionTypes.GET, "locality")
