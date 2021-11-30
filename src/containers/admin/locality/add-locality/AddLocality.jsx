@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react"
 
 import AddLocalityComponent from "../../../../components/admin/locality/add-locality/AddLocalityComponent"
-import { addLocality } from "../../../../services/services"
+import { addLocality, getLocality } from "../../../../services/services"
 
 export default function AddLocality() {
   const [name, setName] = useState("")
   const [response, setResponse] = useState("")
+  const [error, setError] = useState("")
+  const [locality, setLocality] = useState("")
 
   const submitData = e => {
     e.preventDefault()
@@ -17,7 +19,18 @@ export default function AddLocality() {
       })
       .catch(error => {
         const err = error
-        setResponse(err)
+        setError(err)
+      })
+  }
+
+  const getData = e => {
+    getLocality(locality.id)
+      .then(res => {
+        setResponse(res.data)
+      })
+      .catch(error => {
+        const err = error
+        setError(err)
       })
   }
 
@@ -27,6 +40,7 @@ export default function AddLocality() {
       setName={setName}
       submitData={submitData}
       response={response}
+      error={error}
     />
   )
 }

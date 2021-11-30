@@ -12,6 +12,10 @@ export const userPendingPayment = (locality, houseNumber, phoneNumber) =>
         phoneNumber
     )
 
-// Locality API 
+// Locality API
 export const getAllLocality = () => ApiCall(actionTypes.GET, "locality/")
+export const getLocality = id =>
+    ApiCall(actionTypes.GET, "locality/" + id + "/")
 export const addLocality = data => ApiCall(actionTypes.POST, "locality/", data)
+export const deleteLocality = id =>
+    ApiCall(actionTypes.DELETE, "locality/" + id + "/")

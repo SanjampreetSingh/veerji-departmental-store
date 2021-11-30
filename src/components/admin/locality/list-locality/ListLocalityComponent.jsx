@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 export default function ListLocalityComponent(props) {
-  let { locality } = props
+  let { locality, deleteData, getError, deleteResponse } = props
 
   return (
     <>
@@ -38,6 +38,7 @@ export default function ListLocalityComponent(props) {
             <tr>
               <th>Sr. No.</th>
               <th>Locality</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -58,6 +59,21 @@ export default function ListLocalityComponent(props) {
                       {data.name}
                     </a>
                   </span>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    className="btn btn-outline-secondary btn-sm me-2"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-outline-danger btn-sm"
+                    onClick={e => deleteData(data.id)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
