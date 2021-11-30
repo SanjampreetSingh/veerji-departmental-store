@@ -12,4 +12,6 @@ export const userPendingPayment = (locality, houseNumber, phoneNumber) =>
         phoneNumber
     )
 
+// Locality API 
 export const getAllLocality = () => ApiCall(actionTypes.GET, "locality/")
+export const addLocality = data => ApiCall(actionTypes.POST, "locality/", data)

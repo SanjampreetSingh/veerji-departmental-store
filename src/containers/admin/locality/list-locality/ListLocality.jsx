@@ -4,7 +4,7 @@ import ListLocalityComponent from "../../../../components/admin/locality/list-lo
 import { getAllLocality } from "../../../../services/services"
 
 export default function ListLocality() {
-  const [locality, setLocality] = useState([])
+  const [response, setResponse] = useState([])
 
   useEffect(() => {
     getData()
@@ -13,12 +13,12 @@ export default function ListLocality() {
   const getData = e => {
     getAllLocality()
       .then(res => {
-        setLocality(res.data)
+        setResponse(res.data)
       })
       .catch(error => {
         const err = error
-        return err
+        setResponse(err)
       })
   }
-  return <ListLocalityComponent locality={locality} />
+  return <ListLocalityComponent locality={response} />
 }

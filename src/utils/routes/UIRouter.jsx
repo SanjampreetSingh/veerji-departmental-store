@@ -19,17 +19,19 @@ import AdminHome from "../../views/admin/admin-home/AdminHome"
 import AdminCustomer from "../../views/admin/admin-customer/AdminCustomer"
 import CustomerAdd from "../../views/admin/customer/add/CustomerAdd"
 import CustomerDetails from "../../views/admin/customer/details/CustomerDetails"
-import AddLocality from "../../components/admin/locality/add-locality/AddLocality"
+import AddLocality from "../../containers/admin/locality/add-locality/AddLocality"
 import ListLocality from "../../containers/admin/locality/list-locality/ListLocality"
 
 export default function UIRouter() {
   return (
     <Router>
       <Switch>
+        {/* Home Routes */}
         <HomeRouter exact path="/" component={Home} />
         <HomeRouter exact path="/user/search" component={Search} />
         <HomeRouter exact path="/user/pay" component={MakePayments} />
         <HomeRouter exact path="/admin/login" component={Login} />
+        {/* Admin Routes */}
         <AdminRouter exact path="/admin" component={AdminHome} />
         <AdminRouter exact path="/admin/home" component={AdminHome} />
         <AdminRouter exact path="/admin/customer" component={AdminCustomer} />
@@ -41,6 +43,7 @@ export default function UIRouter() {
         />
         <AdminRouter exact path="/admin/locality" component={ListLocality} />
         <AdminRouter exact path="/admin/locality/add" component={AddLocality} />
+        {/* Default Route */}
         <Route>
           <Redirect to="/" />
         </Route>

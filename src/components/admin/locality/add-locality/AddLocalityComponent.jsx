@@ -1,8 +1,8 @@
 import GeoLocationIcon from "../../../../assets/icons/GeoLocationIcon"
-import HomeIcon from "../../../../assets/icons/HomeIcon"
-import PhoneIcon from "../../../../assets/icons/PhoneIcon"
 
-export default function AddLocality() {
+export default function AddLocalityComponent(props) {
+  const { name, setName, submitData, response } = props
+
   return (
     <>
       <div className="container">
@@ -10,7 +10,7 @@ export default function AddLocality() {
           <GeoLocationIcon width="72" height="57" />
           <h2>Please add locality</h2>
         </div>
-        <form>
+        <form onSubmit={e => submitData(e)}>
           <div className="mb-3 row">
             <label htmlFor="locality" className="col-sm-12 col-form-label">
               Locality
@@ -26,6 +26,8 @@ export default function AddLocality() {
                   name="locality"
                   id="locality"
                   placeholder="Please enter locality"
+                  value={name}
+                  onChange={e => setName(e.target.value)}
                 />
               </div>
               <small id="customerTelephone" className="form-text text-muted">
@@ -36,7 +38,7 @@ export default function AddLocality() {
           <div className="mb-3 row">
             <div className="col-sm-10">
               <button type="submit" className="btn btn-primary">
-                Please enter new locality
+                Submit
               </button>
             </div>
           </div>
