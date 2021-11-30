@@ -70,7 +70,7 @@ export default function ListLocalityComponent(props) {
                   <button
                     type="button"
                     className="btn btn-outline-danger btn-sm"
-                    onClick={e => deleteData(data.id)}
+                    onClick={() => deleteData(data.id)}
                   >
                     Delete
                   </button>

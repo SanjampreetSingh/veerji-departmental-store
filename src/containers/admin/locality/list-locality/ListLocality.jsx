@@ -4,34 +4,30 @@ import ListLocalityComponent from "../../../../components/admin/locality/list-lo
 import { getAllLocality, deleteLocality } from "../../../../services/services"
 
 export default function ListLocality() {
-  const [error, setError] = useState([])
+  const [error, setError] = useState(false)
   const [locality, setLocality] = useState([])
   const [deleteResponse, setDeleteResponse] = useState([])
 
   useEffect(() => {
-    getData()
+    getAllLocality()
   }, [])
 
-  const getData = e => {
+  const getAllLocality = () => {
     getAllLocality()
       .then(res => {
-        setLocality(res.data)
+        if (res?.error) {
+          setError(res.error)
+        } else {
+          setLocality(res.data)
+        }
       })
-      .catch(error => {
-        const err = error
-        setError(err)
-      })
+      .catch(error => setError(error))
   }
 
   const deleteData = id => {
     deleteLocality(id)
-      .then(res => {
-        setDeleteResponse(res.data)
-      })
-      .catch(error => {
-        const err = error
-        setDeleteResponse(err)
-      })
+      .then(res => setDeleteResponse(res.data))
+      .catch(error => setDeleteResponse(error))
   }
   return (
     <ListLocalityComponent

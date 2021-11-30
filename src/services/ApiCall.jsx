@@ -1,14 +1,21 @@
 import axios from "axios"
 import * as actionTypes from "./actions"
+import { API, ENVIRONMENT } from "../utils/constants"
 
 const token = ""
 let headers = {}
 const instance = axios.create({
-  baseURL: `${process.env.REACT_APP_API_URL}`,
+  baseURL: API,
 })
 
-switch (process.env.NODE_ENV) {
+switch (ENVIRONMENT) {
   case "development":
+    headers = {
+      "Content-Type": "application/json",
+      // Authorization: `Bearer ${token}`,
+    }
+
+  case "production":
     headers = {
       "Content-Type": "application/json",
       // Authorization: `Bearer ${token}`,
