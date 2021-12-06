@@ -8,7 +8,7 @@ export default function AddUsers() {
       <div className="container">
         <div className="py-5 text-center">
           <CustomerIcon width="72" height="57" />
-          <h2>Please add new customer</h2>
+          <h2>Add new customer</h2>
         </div>
         <form>
           <div className="mb-3 row">
@@ -102,7 +102,7 @@ export default function AddUsers() {
           <div className="mb-3 row">
             <div className="col-sm-10">
               <button type="submit" className="btn btn-primary">
-                Please enter new customer
+                Submit
               </button>
             </div>
           </div>

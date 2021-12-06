@@ -21,6 +21,7 @@ import CustomerAdd from "../../views/admin/customer/add/CustomerAdd"
 import CustomerDetails from "../../views/admin/customer/details/CustomerDetails"
 import AddLocality from "../../containers/admin/locality/add-locality/AddLocality"
 import ListLocality from "../../containers/admin/locality/list-locality/ListLocality"
+import EditLocality from "../../containers/admin/locality/edit-locality/EditLocality"
 
 export default function UIRouter() {
   return (
@@ -43,6 +44,7 @@ export default function UIRouter() {
         />
         <AdminRouter exact path="/admin/locality" component={ListLocality} />
         <AdminRouter exact path="/admin/locality/add" component={AddLocality} />
+        <AdminRouter exact path="/admin/locality/:id" component={EditLocality} />
         {/* Default Route */}
         <Route>
           <Redirect to="/" />

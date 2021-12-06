@@ -1,17 +1,28 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 
 import AddLocalityComponent from "../../../../components/admin/locality/add-locality/AddLocalityComponent"
-import { addLocality } from "../../../../services/services"
+import { editLocality, getLocality } from "../../../../services/services"
 
-export default function AddLocality() {
+export default function EditLocality() {
+  let id = window.location.href.split("/").pop()
   const [name, setName] = useState("")
   const [response, setResponse] = useState("")
   const [error, setError] = useState("")
 
+  useEffect(() => {
+    getData()
+  }, [])
+
   const submitData = e => {
     e.preventDefault()
-    addLocality({ name: name })
+    editLocality(id, name)
       .then(res => setResponse(res.data))
+      .catch(error => setError(error))
+  }
+
+  const getData = () => {
+    getLocality(id)
+      .then(res => setName(res?.data?.name))
       .catch(error => setError(error))
   }
 

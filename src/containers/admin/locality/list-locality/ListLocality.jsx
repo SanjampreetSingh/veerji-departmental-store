@@ -9,16 +9,16 @@ export default function ListLocality() {
   const [deleteResponse, setDeleteResponse] = useState([])
 
   useEffect(() => {
-    getAllLocality()
+    getData()
   }, [])
 
-  const getAllLocality = () => {
+  const getData = () => {
     getAllLocality()
       .then(res => {
         if (res?.error) {
           setError(res.error)
         } else {
-          setLocality(res.data)
+          setLocality(res?.data?.results)
         }
       })
       .catch(error => setError(error))

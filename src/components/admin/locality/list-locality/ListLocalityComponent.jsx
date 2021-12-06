@@ -61,12 +61,13 @@ export default function ListLocalityComponent(props) {
                   </span>
                 </td>
                 <td>
-                  <button
+                  <Link
                     type="button"
+                    to={"/admin/locality/" + data.id}
                     className="btn btn-outline-secondary btn-sm me-2"
                   >
                     Edit
-                  </button>
+                  </Link>
                   <button
                     type="button"
                     className="btn btn-outline-danger btn-sm"

@@ -12,6 +12,8 @@ export const getAllLocality = () => ApiCall(action.GET, "locality/")
 export const getLocality = id => ApiCall(action.GET, `locality/${id}/`)
 export const addLocality = data => ApiCall(action.POST, "locality/", data)
 export const deleteLocality = id => ApiCall(action.DELETE, `locality/${id}/`)
+export const editLocality = (id, data) =>
+    ApiCall(action.PUT, `locality/${id}?locality=${data}`)
 
 // Category API
 export const getAllCategory = () => ApiCall(action.GET, "category/")
