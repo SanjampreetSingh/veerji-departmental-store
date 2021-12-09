@@ -10,7 +10,7 @@ export default function AddLocalityComponent(props) {
           <GeoLocationIcon width="72" height="57" />
           <h2>Please add locality</h2>
         </div>
-        <form onSubmit={e => submitData(e)}>
+        <form onSubmit={submitData}>
           <div className="mb-3 row">
             <label htmlFor="locality" className="col-sm-12 col-form-label">
               Locality
