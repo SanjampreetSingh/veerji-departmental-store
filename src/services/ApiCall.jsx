@@ -1,58 +1,33 @@
 import axios from "axios"
 import * as actionTypes from "./actions"
-import { API, ENVIRONMENT } from "../utils/constants"
+import { API } from "../utils/constants"
 
-const token = ""
-let headers = {}
 const instance = axios.create({
   baseURL: API,
+  timeout: 5000,
+  headers: {
+    "Content-Type": "application/json",
+    accept: "application/json",
+    Authorization: localStorage.getItem("access_token")
+      ? `Bearer ${localStorage.getItem("access_token")}`
+      : null,
+  },
 })
 
-switch (ENVIRONMENT) {
-  case "development":
-    headers = {
-      "Content-Type": "application/json",
-      // Authorization: `Bearer ${token}`,
-    }
-
-  case "production":
-    headers = {
-      "Content-Type": "application/json",
-      // Authorization: `Bearer ${token}`,
-    }
-
-  default:
-    headers = {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    }
-}
-
-export default async function ApiCall(
-  action,
-  url,
-  data = {},
-  config = headers
-) {
+export default async function ApiCall(action, url, data = {}) {
   let response = {}
   switch (action) {
     case actionTypes.GET:
-      response = await instance.get(url, config)
+      response = await instance.get(url)
       return response
     case actionTypes.POST:
-      response = await instance.post(url, data, config)
+      response = await instance.post(url, data)
       return response
-    case actionTypes.CREATE:
-      response = await instance.post(url, data, config)
-      return response
-    case actionTypes.READ:
-      response = await instance.get(url, config)
-      return response
-    case actionTypes.UPDATE:
-      response = await instance.put(url, data, config)
+    case actionTypes.PUT:
+      response = await instance.put(url, data)
       return response
     case actionTypes.DELETE:
-      response = await instance.delete(url, config)
+      response = await instance.delete(url)
       return response
     default:
       return response

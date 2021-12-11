@@ -1,13 +1,6 @@
-import CartIcon from "../../assets/icons/CartIcon"
-
-export default function Form() {
+export default function RegisterComponent() {
   return (
-    <form>
-      <div className="mb-4">
-        <CartIcon width="72" height="57" />
-      </div>
-      <h1 className="h3 mb-3 fw-normal">Please sign up</h1>
-
+    <>
       <div className="form-floating mb-3">
         <input
           type="text"
@@ -73,7 +66,6 @@ export default function Form() {
       <button className="w-100 btn btn-lg btn-primary" type="submit">
         Sign up
       </button>
-      <p className="mt-5 mb-3 text-muted">&copy; 2019–2021</p>
-    </form>
+    </>
   )
 }

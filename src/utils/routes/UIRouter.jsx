@@ -8,13 +8,14 @@ import {
 // Layouts
 import HomeRouter from "../../layouts/home/HomeRouter"
 import AdminRouter from "../../layouts/admin/AdminRouter"
+import LoginRouter from "../../layouts/login/LoginRouter"
 
 // user views
 import Home from "../../views/home/Home"
 import Search from "../../views/user/search/Search"
 import MakePayments from "../../views/user/search/MakePayments"
-import Login from "../../views/login/Login"
-import Register from "../../views/register/Register"
+import Login from "../../containers/login/Login"
+import Register from "../../containers/register/Register"
 // admin view
 import AdminHome from "../../views/admin/admin-home/AdminHome"
 import AdminCustomer from "../../views/admin/admin-customer/AdminCustomer"
@@ -32,8 +33,19 @@ export default function UIRouter() {
         <HomeRouter exact path="/" component={Home} />
         <HomeRouter exact path="/user/search" component={Search} />
         <HomeRouter exact path="/user/pay" component={MakePayments} />
-        <HomeRouter exact path="/login" component={Login} />
-        <HomeRouter exact path="/register" component={Register} />
+        {/* Login Routes */}
+        <LoginRouter
+          exact
+          path="/login"
+          component={Login}
+          heading="Please sign in"
+        />
+        <LoginRouter
+          exact
+          path="/register"
+          component={Register}
+          heading="Please sign up"
+        />
         {/* Admin Routes */}
         <AdminRouter exact path="/admin" component={AdminHome} />
         <AdminRouter exact path="/admin/home" component={AdminHome} />

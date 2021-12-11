@@ -12,7 +12,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            &copy; 2021 Veerji Departmental Store, Ldh
+            &copy; {new Date().getFullYear()} Veerji Departmental Store, Ldh
           </a>
         </p>
 
