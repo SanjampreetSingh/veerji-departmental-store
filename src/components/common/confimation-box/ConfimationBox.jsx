@@ -8,23 +8,23 @@ export default function ConfimationBox(props) {
         type="button"
         className={"btn " + triggerBtnClass}
         data-toggle="modal"
-        data-target="#exampleModal"
+        data-target="#confirmBox"
       >
         {btnTitle}
       </button>
 
       <div
         className="modal fade"
-        id="exampleModal"
+        id="confirmBox"
         tabindex="-1"
         role="dialog"
-        aria-labelledby="exampleModalLabel"
+        aria-labelledby="confirmationBox"
         aria-hidden="true"
       >
         <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
+          <div className="modal-content rounded-6 shadow">
+            <div className="modal-header border-bottom-0">
+              <h5 className="modal-title" id="confirmationBox">
                 {modalTitle}
               </h5>
               <button
@@ -37,22 +37,22 @@ export default function ConfimationBox(props) {
               </button>
             </div>
             {modalBody ? (
-              <div className="modal-body">{modalMessage}</div>
+              <div className="modal-body py-0">{modalMessage}</div>
             ) : null}
-            <div className="modal-footer">
+            <div className="modal-footer flex-column border-top-0">
               <button
                 type="button"
-                className="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-              <button
-                type="button"
-                className="btn btn-primary"
+                className="btn btn-lg btn-primary w-100 mx-0 mb-2"
                 onClick={modelAction}
               >
                 Confirm
+              </button>
+              <button
+                type="button"
+                className="btn btn-lg btn-light w-100 mx-0"
+                data-dismiss="modal"
+              >
+                Close
               </button>
             </div>
           </div>
