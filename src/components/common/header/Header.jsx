@@ -5,16 +5,16 @@ import CartIcon from "../../../assets/icons/CartIcon"
 
 export default function Header() {
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <Link to="/" class="navbar-brand d-lg-none">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="container">
+        <Link to="/" className="navbar-brand d-lg-none">
           <CartIcon />
         </Link>
-        <Link to="/" class="navbar-brand d-none d-md-block">
+        <Link to="/" className="navbar-brand d-none d-md-block">
           Veerji Departmental Store
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -22,15 +22,15 @@ export default function Header() {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="navbar-nav me-auto mb-2 mb-lg-0"></div>
-          <div class="d-flex">
-            <Link class="btn btn-secondary" to="/register">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div className="navbar-nav me-auto mb-2 mb-lg-0"></div>
+          <div className="d-flex">
+            <Link className="btn btn-secondary" to="/register">
               Register
             </Link>
-            <Link class="btn btn-primary ms-2" to="/login">
+            <Link className="btn btn-primary ms-2" to="/login">
               Login
             </Link>
           </div>

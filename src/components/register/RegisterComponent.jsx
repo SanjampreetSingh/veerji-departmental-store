@@ -1,13 +1,18 @@
-export default function RegisterComponent() {
+export default function RegisterComponent(props) {
+  let { locality, error, updateFormState, formState, onSubmit, submitStatus } =
+    props
   return (
+    // TODO: Add validations in UI
     <>
+      {/* <span>{submitStatus}</span> */}
       <div className="form-floating mb-3">
         <input
           type="text"
           className="form-control form-control-sm"
-          id="floatingInput"
           placeholder="Happy Singh"
           required
+          onChange={e => updateFormState("name", e.target.value)}
+          value={formState?.name}
         />
         <label htmlFor="floatingInput">Name</label>
       </div>
@@ -15,9 +20,10 @@ export default function RegisterComponent() {
         <input
           type="email"
           className="form-control form-control-sm"
-          id="floatingInput"
           placeholder="name@example.com"
           required
+          onChange={e => updateFormState("email", e.target.value)}
+          value={formState?.email}
         />
         <label htmlFor="floatingInput">Email address</label>
       </div>
@@ -25,11 +31,12 @@ export default function RegisterComponent() {
         <input
           type="tel"
           className="form-control form-control-sm"
-          id="floatingInput"
           placeholder="9999999999"
           pattern="[0-9]{10}"
-          maxlength="10"
+          maxLength="10"
           required
+          onChange={e => updateFormState("phone", e.target.value)}
+          value={formState?.phone}
         />
         <label htmlFor="floatingInput">Phone Number</label>
       </div>
@@ -40,6 +47,8 @@ export default function RegisterComponent() {
           id="floatingPassword"
           placeholder="Password"
           required
+          onChange={e => updateFormState("password", e.target.value)}
+          value={formState?.password}
         />
         <label htmlFor="floatingPassword">Password</label>
       </div>
@@ -47,23 +56,37 @@ export default function RegisterComponent() {
         <input
           type="text"
           className="form-control form-control-sm"
-          id="floatingInput"
-          maxlength="7"
+          maxLength="7"
           placeholder="79 A"
           required
+          onChange={e => updateFormState("house_number", e.target.value)}
+          value={formState?.house_number}
         />
         <label htmlFor="floatingInput">House Number</label>
       </div>
-      <div className="form-floating mb-3">
-        <select className="form-control" name="" id="">
-          <option></option>
-          <option></option>
-          <option></option>
+      <div className="form-floating mb-5">
+        <select
+          className="form-select"
+          onChange={e => updateFormState("locality", e.target.value)}
+          value={formState?.locality}
+        >
+          <option value="" defaultValue>
+            Please select locality
+          </option>
+          {locality?.map((val, idx) => (
+            <option key={idx} value={val?.id}>
+              {val?.name}
+            </option>
+          ))}
         </select>
         <label htmlFor="floatingInput">Locality</label>
       </div>
 
-      <button className="w-100 btn btn-lg btn-primary" type="submit">
+      <button
+        className="w-100 btn btn-lg btn-primary"
+        type="button"
+        onClick={onSubmit}
+      >
         Sign up
       </button>
     </>
