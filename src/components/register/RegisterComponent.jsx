@@ -1,29 +1,27 @@
 export default function RegisterComponent(props) {
-  let { locality, error, updateFormState, formState, onSubmit, submitStatus } =
-    props
+  let { locality, error, handleChange, handleSubmit, submitError } = props
   return (
     // TODO: Add validations in UI
     <>
-      {/* <span>{submitStatus}</span> */}
       <div className="form-floating mb-3">
         <input
           type="text"
           className="form-control form-control-sm"
           placeholder="Happy Singh"
-          required
-          onChange={e => updateFormState("name", e.target.value)}
-          value={formState?.name}
+          autoComplete="name"
+          name="name"
+          onChange={handleChange}
         />
         <label htmlFor="floatingInput">Name</label>
       </div>
       <div className="form-floating mb-3">
         <input
           type="email"
+          autoComplete="email"
           className="form-control form-control-sm"
           placeholder="name@example.com"
-          required
-          onChange={e => updateFormState("email", e.target.value)}
-          value={formState?.email}
+          name="email"
+          onChange={handleChange}
         />
         <label htmlFor="floatingInput">Email address</label>
       </div>
@@ -32,23 +30,23 @@ export default function RegisterComponent(props) {
           type="tel"
           className="form-control form-control-sm"
           placeholder="9999999999"
+          autoComplete="tel-national"
           pattern="[0-9]{10}"
           maxLength="10"
-          required
-          onChange={e => updateFormState("phone", e.target.value)}
-          value={formState?.phone}
+          name="phone"
+          onChange={handleChange}
         />
         <label htmlFor="floatingInput">Phone Number</label>
       </div>
       <div className="form-floating mb-3">
         <input
           type="password"
+          autoComplete="new-password"
           className="form-control form-control-sm"
           id="floatingPassword"
           placeholder="Password"
-          required
-          onChange={e => updateFormState("password", e.target.value)}
-          value={formState?.password}
+          name="password"
+          onChange={handleChange}
         />
         <label htmlFor="floatingPassword">Password</label>
       </div>
@@ -57,18 +55,20 @@ export default function RegisterComponent(props) {
           type="text"
           className="form-control form-control-sm"
           maxLength="7"
+          autoComplete="off"
           placeholder="79 A"
-          required
-          onChange={e => updateFormState("house_number", e.target.value)}
-          value={formState?.house_number}
+          name="house_number"
+          onChange={handleChange}
         />
         <label htmlFor="floatingInput">House Number</label>
       </div>
-      <div className="form-floating mb-5">
+      <div className="form-floating mb-3">
         <select
           className="form-select"
-          onChange={e => updateFormState("locality", e.target.value)}
-          value={formState?.locality}
+          name="locality"
+          aria-labelledby="locality"
+          autoComplete="off"
+          onChange={handleChange}
         >
           <option value="" defaultValue>
             Please select locality
@@ -84,8 +84,8 @@ export default function RegisterComponent(props) {
 
       <button
         className="w-100 btn btn-lg btn-primary"
-        type="button"
-        onClick={onSubmit}
+        type="submit"
+        onClick={handleSubmit}
       >
         Sign up
       </button>

@@ -1,12 +1,21 @@
 import { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom"
 
 import RegisterComponent from "../../components/register/RegisterComponent"
 import { getAllLocality, addUser } from "../../services/services"
 
 export default function Register() {
-  const [locality, setLocality] = useState([])
-  const [submitStatus, setSubmitStatus] = useState("")
-  const [error, setError] = useState({
+  const history = useHistory()
+  const formObj = Object.freeze({
+    name: "",
+    email: "",
+    password: "",
+    phone: "",
+    house_number: "",
+    locality: "",
+  })
+
+  const errorObj = Object.freeze({
     error: false,
     name: "",
     email: "",
@@ -15,25 +24,30 @@ export default function Register() {
     house_number: "",
     locality: "",
   })
-  const [formState, setFormState] = useState({
-    name: "",
-    email: "",
-    password: "",
-    phone: "",
-    house_number: "",
-    locality: "",
-  })
 
-  const onSubmit = () => {
-    addUser(formState)
+  const [locality, setLocality] = useState([])
+  const [error, setError] = useState(errorObj)
+  const [submitError, setSubmitError] = useState("")
+  const [formState, setFormState] = useState(formObj)
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    addUser({
+      name: formState?.name,
+      email: formState?.email,
+      password: formState?.password,
+      phone: formState?.phone,
+      house_number: formState?.house_number,
+      locality: formState?.locality,
+    })
       .then(res => {
         if (res?.error) {
-          setSubmitStatus(res.error)
+          setSubmitError(res.error)
         } else {
-          setSubmitStatus(res?.data)
+          history.push("/login")
         }
       })
-      .catch(error => setSubmitStatus(error))
+      .catch(error => setSubmitError(error))
   }
 
   const updateErrorState = (name, value) => {
@@ -69,8 +83,13 @@ export default function Register() {
         break
     }
   }
-  const updateFormState = (name, value) => {
-    setFormState(prev => ({ ...prev, [name]: value }))
+  const handleChange = e => {
+    const name = e.target?.name
+    const value = e?.target?.value?.trim()
+    setFormState(prev => ({
+      ...prev,
+      [name]: value,
+    }))
     updateErrorState(name, value)
   }
 
@@ -90,10 +109,9 @@ export default function Register() {
     <RegisterComponent
       locality={locality}
       error={error}
-      formState={formState}
-      updateFormState={updateFormState}
-      onSubmit={onSubmit}
-      submitStatus={submitStatus}
+      submitError={submitError}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
     />
   )
 }

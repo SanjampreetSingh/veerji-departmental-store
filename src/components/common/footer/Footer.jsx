@@ -29,11 +29,6 @@ export default function Footer() {
               Home
             </Link>
           </li>
-          <li className="nav-item">
-            <Link to="/user/search" className="nav-link px-2 text-muted">
-              Milk Subscriptions
-            </Link>
-          </li>
         </ul>
       </footer>
     </div>
