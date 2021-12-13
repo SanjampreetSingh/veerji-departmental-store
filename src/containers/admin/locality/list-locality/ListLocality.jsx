@@ -18,7 +18,7 @@ export default function ListLocality() {
         if (res?.error) {
           setError(res.error)
         } else {
-          setLocality(res?.data?.results)
+          setLocality(res?.data)
         }
       })
       .catch(error => setError(error))

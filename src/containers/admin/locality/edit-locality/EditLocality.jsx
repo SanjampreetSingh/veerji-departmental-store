@@ -15,7 +15,7 @@ export default function EditLocality() {
 
   const submitData = e => {
     e.preventDefault()
-    editLocality(id, name)
+    editLocality(id, {name: name})
       .then(res => setResponse(res.data))
       .catch(error => setError(error))
   }

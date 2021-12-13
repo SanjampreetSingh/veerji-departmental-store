@@ -10,6 +10,7 @@ export default function RegisterComponent(props) {
           placeholder="Happy Singh"
           autoComplete="name"
           name="name"
+          autoFocus
           onChange={handleChange}
         />
         <label htmlFor="floatingInput">Name</label>

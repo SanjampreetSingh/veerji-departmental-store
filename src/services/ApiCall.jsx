@@ -2,7 +2,7 @@ import axios from "axios"
 import * as actionTypes from "./actions"
 import { API } from "../utils/constants"
 
-const instance = axios.create({
+export const instance = axios.create({
   baseURL: API,
   timeout: 5000,
   headers: {
