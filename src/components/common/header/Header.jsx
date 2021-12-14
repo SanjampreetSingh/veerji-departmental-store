@@ -1,6 +1,5 @@
-import Navbar from "react-bootstrap/Navbar"
-import Container from "react-bootstrap/Container"
 import { Link } from "react-router-dom"
+
 import CartIcon from "../../../assets/icons/CartIcon"
 
 export default function Header() {

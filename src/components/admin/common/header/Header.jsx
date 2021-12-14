@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-// internal
+
 import CartIcon from "../../../../assets/icons/CartIcon"
 
 export default function Header() {
@@ -36,7 +36,7 @@ export default function Header() {
         />
         <div className="navbar-nav">
           <div className="nav-item text-nowrap">
-            <Link className="nav-link px-3" to="/">
+            <Link className="nav-link px-3" to="/logout">
               Sign out
             </Link>
           </div>
