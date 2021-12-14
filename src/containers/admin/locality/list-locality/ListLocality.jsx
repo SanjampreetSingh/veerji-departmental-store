@@ -24,16 +24,23 @@ export default function ListLocality() {
       .catch(error => setError(error))
   }
 
-  const deleteData = id => {
+  const handleDelete = id => {
     deleteLocality(id)
-      .then(res => setDeleteResponse(res.data))
+      .then(res => {
+        if (res?.error) {
+          setError(res.error)
+        } else {
+          setDeleteResponse(res?.data)
+          loadData()
+        }
+      })
       .catch(error => setDeleteResponse(error))
   }
   return (
     <ListLocalityComponent
       locality={locality}
       getError={error}
-      deleteData={deleteData}
+      handleDelete={handleDelete}
       deleteResponse={deleteResponse}
     />
   )
