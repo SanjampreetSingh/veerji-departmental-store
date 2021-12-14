@@ -8,25 +8,23 @@ export default function LoginComponent(props) {
           type="email"
           name="email"
           className="form-control"
-          id="floatingInput"
           placeholder="name@example.com"
           autoFocus
           autoComplete="email"
           onChange={handleChange}
         />
-        <label htmlFor="floatingInput">Email address</label>
+        <label htmlFor="email">Email address</label>
       </div>
       <div className="form-floating">
         <input
           type="password"
           name="password"
           className="form-control"
-          id="floatingPassword"
           placeholder="Password"
           autoComplete="password"
           onChange={handleChange}
         />
-        <label htmlFor="floatingPassword">Password</label>
+        <label htmlFor="password">Password</label>
       </div>
 
       <button

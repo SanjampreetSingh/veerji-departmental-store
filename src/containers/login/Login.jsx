@@ -24,7 +24,6 @@ export default function Login() {
   const [formState, setFormState] = useState(formObj)
 
   const handleSubmit = e => {
-    console.log(formState)
     e.preventDefault()
     getToken({
       email: formState?.email,

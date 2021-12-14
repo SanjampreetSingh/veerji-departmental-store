@@ -1,38 +1,75 @@
 import React, { useState, useEffect } from "react"
+import { useHistory } from "react-router-dom"
 
-import AddLocalityComponent from "../../../../components/admin/locality/add-locality/AddLocalityComponent"
+import FormLocalityComponent from "../../../../components/admin/locality/form-locality/FormLocalityComponent"
 import { editLocality, getLocality } from "../../../../services/services"
 
 export default function EditLocality() {
   let id = window.location.href.split("/").pop()
-  const [name, setName] = useState("")
+  const history = useHistory()
+
+  const formObj = Object.freeze({
+    name: "",
+  })
+
+  const errorObj = Object.freeze({
+    error: false,
+    name: "",
+  })
+
+  const [error, setError] = useState(errorObj)
+  const [formState, setFormState] = useState(formObj)
+  const [submitError, setSubmitError] = useState("")
   const [response, setResponse] = useState("")
-  const [error, setError] = useState("")
 
-  useEffect(() => {
-    getData()
-  }, [])
-
-  const submitData = e => {
+  const handleSubmit = e => {
     e.preventDefault()
-    editLocality(id, {name: name})
-      .then(res => setResponse(res.data))
+    editLocality(id, { name: formState?.name })
+      .then(res => {
+        if (res?.error) {
+          setSubmitError(res.error)
+        } else {
+          setResponse(res.data)
+          history.push("/locality")
+        }
+      })
       .catch(error => setError(error))
   }
 
-  const getData = () => {
+  const handleChange = e => {
+    const name = e.target?.name
+    const value = e?.target?.value?.trim()
+    setFormState(prev => ({
+      ...prev,
+      [name]: value,
+    }))
+    // updateErrorState(name, value)
+  }
+
+  useEffect(() => {
+    loadData()
+  }, [])
+
+  const loadData = () => {
     getLocality(id)
-      .then(res => setName(res?.data?.name))
+      .then(res =>
+        setFormState(prev => ({
+          ...prev,
+          name: res?.data?.name,
+        }))
+      )
       .catch(error => setError(error))
   }
 
   return (
-    <AddLocalityComponent
-      name={name}
-      setName={setName}
-      submitData={submitData}
+    <FormLocalityComponent
       response={response}
       error={error}
+      submitError={submitError}
+      formState={formState}
+      handleSubmit={handleSubmit}
+      handleChange={handleChange}
+      updateBool={true}
     />
   )
 }
