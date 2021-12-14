@@ -24,11 +24,10 @@ export default function AddUsers() {
                   type="text"
                   className="form-control"
                   name="customerName"
-                  id="customerName"
                   placeholder="Please enter customer name"
                 />
               </div>
-              <small id="customerTelephone" className="form-text text-muted">
+              <small className="form-text text-muted">
                 Please enter customer's name
               </small>
             </div>
@@ -49,14 +48,13 @@ export default function AddUsers() {
                   type="tel"
                   className="form-control"
                   name="customerTelephone"
-                  id="customerTelephone"
                   maxLength="10"
                   aria-describedby="customerTelephone"
                   placeholder="Please enter customer telephone"
                 />
               </div>
             </div>
-            <small id="customerTelephone" className="form-text text-muted">
+            <small className="form-text text-muted">
               Please enter customer's telephone
             </small>
           </div>
@@ -69,12 +67,7 @@ export default function AddUsers() {
                 <span className="input-group-text">
                   <HomeIcon />
                 </span>
-                <input
-                  type="text"
-                  className="form-control"
-                  // @ts-ignore
-                  maxLength="10"
-                />
+                <input type="text" className="form-control" maxLength="10" />
               </div>
               <div className="form-text">Please enter house number.</div>
               <div className="invalid-feedback">
@@ -91,7 +84,7 @@ export default function AddUsers() {
                 </option>
                 <option defaultValue="1">One</option>
               </select>
-              <small id="customerTelephone" className="form-text text-muted">
+              <small className="form-text text-muted">
                 Please select customer's locality
               </small>
               <div className="invalid-feedback">

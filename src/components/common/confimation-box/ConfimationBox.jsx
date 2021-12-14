@@ -24,9 +24,7 @@ export default function ConfimationBox(props) {
         <div className="modal-dialog" role="document">
           <div className="modal-content rounded-6 shadow">
             <div className="modal-header border-bottom-0">
-              <h5 className="modal-title" id="confirmationBox">
-                {modalTitle}
-              </h5>
+              <h5 className="modal-title">{modalTitle}</h5>
               <button
                 type="button"
                 className="close"

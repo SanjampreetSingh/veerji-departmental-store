@@ -44,7 +44,6 @@ export default function RegisterComponent(props) {
           type="password"
           autoComplete="new-password"
           className="form-control form-control-sm"
-          id="floatingPassword"
           placeholder="Password"
           name="password"
           onChange={handleChange}

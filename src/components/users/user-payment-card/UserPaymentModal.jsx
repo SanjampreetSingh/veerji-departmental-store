@@ -2,7 +2,6 @@ export default function UserPaymentModal(params) {
   return (
     <div
       className="modal fade"
-      id="paymentModal"
       data-bs-backdrop="static"
       data-bs-keyboard="false"
       tabIndex="-1"
