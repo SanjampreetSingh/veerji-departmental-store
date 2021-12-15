@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
+import jwt_decode from "jwt-decode"
 
 import LoginComponent from "../../components/login/LoginComponent"
 import { instance } from "../../services/ApiCall"
@@ -37,7 +38,12 @@ export default function Login() {
           localStorage.setItem("refresh_token", res?.data?.refresh)
           instance.defaults.headers["Authorization"] =
             "Bearer " + localStorage.getItem("access_token")
-          history.push("/")
+          const decoded = jwt_decode(localStorage.getItem("access_token"))
+          if (decoded?.type === 1) {
+            history.push("/admin/home")
+          } else {
+            history.push("/")
+          }
         }
       })
       .catch(error => setSubmitError(error))

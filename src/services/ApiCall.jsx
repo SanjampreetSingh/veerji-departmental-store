@@ -1,4 +1,5 @@
 import axios from "axios"
+
 import * as actionTypes from "./actions"
 import { API } from "../utils/constants"
 
@@ -58,8 +59,8 @@ instance.interceptors.response.use(
               refresh: refreshToken,
             })
             .then(response => {
-              localStorage.setItem("access_token", response.data.access)
-              localStorage.setItem("refresh_token", response.data.refresh)
+              localStorage.setItem("access_token", response?.data?.access)
+              localStorage.setItem("refresh_token", response?.data?.refresh)
 
               instance.defaults.headers["Authorization"] =
                 "Bearer " + response.data.access
