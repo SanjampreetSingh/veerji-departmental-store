@@ -34,6 +34,9 @@ export default function UIRouter() {
         {/* Home Routes */}
         <HomeRouter exact path="/" component={Home} />
         {/* User Router */}
+        <Route exact path="/user">
+          <Redirect to="/user/search" />
+        </Route>
         <UserRouter exact path="/user/search" component={Search} />
         <UserRouter exact path="/user/pay" component={MakePayments} />
         {/* Login Routes */}
@@ -51,7 +54,9 @@ export default function UIRouter() {
         />
         <Route exact path="/logout" component={Logout} />
         {/* Admin Routes */}
-        <AdminRouter exact path="/admin" component={AdminHome} />
+        <Route exact path="/admin">
+          <Redirect to="/admin/home" />
+        </Route>
         <AdminRouter exact path="/admin/home" component={AdminHome} />
         <AdminRouter exact path="/admin/customer" component={AdminCustomer} />
         <AdminRouter exact path="/admin/customer/add" component={CustomerAdd} />
