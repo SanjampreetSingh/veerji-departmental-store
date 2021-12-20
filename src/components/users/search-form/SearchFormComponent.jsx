@@ -1,20 +1,26 @@
 import HomeIcon from "../../../assets/icons/HomeIcon"
 import PhoneIcon from "../../../assets/icons/PhoneIcon"
 
-export default function SearchForm(props) {
+export default function SearchFormComponent(props) {
+  const { locality, getError } = props
+
   return (
     <div className="container my-2 p-3">
-      <form className="row g-3 needs-validation" novalidate>
+      <form className="row g-3 needs-validation">
         <h3>Check your pending payments</h3>
         <div className="col-md-6">
           <label htmlFor="locality" className="form-label">
             Select locality
           </label>
           <select className="form-select" aria-label="Select Locality">
-            <option disabled defaultValue="">
+            <option defaultValue>
               Open to select locality
             </option>
-            <option defaultValue="1">One</option>
+            {locality.map((data, index) => (
+              <option key={index} value={data.id}>
+                {data.name}
+              </option>
+            ))}
           </select>
           <div className="form-text">Please select one of the options.</div>
           <div className="invalid-feedback">

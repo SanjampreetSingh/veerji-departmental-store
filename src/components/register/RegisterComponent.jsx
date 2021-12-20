@@ -1,5 +1,5 @@
 export default function RegisterComponent(props) {
-  let { locality, error, handleChange, handleSubmit, submitError } = props
+  const { locality, error, handleChange, handleSubmit, submitError } = props
   return (
     // TODO: Add validations in UI
     <>

@@ -1,5 +1,5 @@
 export default function ConfimationBox(props) {
-  let { btnTitle, btnClass, modalTitle, modalBody, modalMessage, modelAction } =
+  const { btnTitle, btnClass, modalTitle, modalBody, modalMessage, modelAction } =
     props
   let triggerBtnClass = btnClass ? btnClass : "btn-primary"
   return (

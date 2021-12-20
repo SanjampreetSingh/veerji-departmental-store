@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 export default function ListLocalityComponent(props) {
-  let { locality, deleteData, getError, deleteResponse } = props
+  const { locality, deleteData, getError, deleteResponse } = props
 
   return (
     <>

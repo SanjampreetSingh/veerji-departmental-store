@@ -1,5 +1,5 @@
 import SearchCover from "../../../components/users/search-cover/SearchCover"
-import SearchForm from "../../../components/users/search-form/SearchForm"
+import SearchForm from "../../../containers/user/search-form/SearchForm"
 
 export default function Search() {
   return (
