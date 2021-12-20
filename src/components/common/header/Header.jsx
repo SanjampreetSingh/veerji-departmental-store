@@ -2,7 +2,9 @@ import { Link } from "react-router-dom"
 
 import CartIcon from "../../../assets/icons/CartIcon"
 
-export default function Header() {
+export default function Header(props) {
+  const { isAuthenticated } = props
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container">
@@ -26,12 +28,20 @@ export default function Header() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <div className="navbar-nav me-auto mb-2 mb-lg-0"></div>
           <div className="d-flex">
-            <Link className="btn btn-secondary" to="/register">
-              Register
-            </Link>
-            <Link className="btn btn-primary ms-2" to="/login">
-              Login
-            </Link>
+            {!isAuthenticated ? (
+              <>
+                <Link className="btn btn-secondary" to="/register">
+                  Register
+                </Link>
+                <Link className="btn btn-primary ms-2" to="/login">
+                  Login
+                </Link>
+              </>
+            ) : (
+              <Link className="btn btn-primary ms-2" to="/logout">
+                Logout
+              </Link>
+            )}
           </div>
         </div>
       </div>

@@ -1,8 +1,9 @@
-import { useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
+
 import CartIcon from "../../../assets/icons/CartIcon"
 
-export default function Heroes() {
-  const history = useHistory()
+export default function Heroes(props) {
+  const { isAuthenticated } = props
 
   return (
     <div className="text-center">
@@ -16,20 +17,34 @@ export default function Heroes() {
           subscription online and order from Veerji Food Court too.
         </p>
         <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <button
-            type="button"
-            className="btn btn-primary btn-lg px-4 gap-3"
-            onClick={() => history.push("/user/search")}
-          >
-            Milk Subscriptions
-          </button>
-          <button
-            type="button"
-            className="btn btn-outline-secondary btn-lg px-4"
-            onClick={() => history.push("/")}
-          >
-            Food Court
-          </button>
+          {!isAuthenticated ? (
+            <>
+              {" "}
+              <>
+                <Link
+                  className="btn  btn-outline-secondary btn-lg px-4 gap-3"
+                  to="/register"
+                >
+                  Register
+                </Link>
+                <Link className="btn btn-primary btn-lg px-4" to="/login">
+                  Login
+                </Link>
+              </>
+            </>
+          ) : (
+            <>
+              <Link
+                className="btn btn-primary btn-lg px-4 gap-3"
+                to="/user/search"
+              >
+                Milk Subscriptions
+              </Link>
+              {/* <Link className="btn btn-outline-secondary btn-lg px-4" to="/">
+              Food Court
+            </Link> */}
+            </>
+          )}
         </div>
       </div>
     </div>

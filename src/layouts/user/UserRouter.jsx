@@ -2,13 +2,9 @@ import { useEffect, useState } from "react"
 import { Route, Redirect } from "react-router-dom"
 import jwt_decode from "jwt-decode"
 
-import LoginLayout from "./LoginLayout"
+import UserLayout from "./UserLayout"
 
-export default function LoginRouter({
-  heading,
-  component: Component,
-  ...rest
-}) {
+export default function UserRouter({ component: Component, ...rest }) {
   const [isAuthenticated, setIsAuthenticated] = useState(null)
   let token = localStorage?.getItem("refresh_token")
 
@@ -16,10 +12,15 @@ export default function LoginRouter({
     if (token) {
       let decoded = jwt_decode(token)
       let tokenExpiration = decoded?.exp
+      let type = decoded?.type
       let dateNow = new Date()
 
       if (tokenExpiration < dateNow.getTime() / 1000) {
         setIsAuthenticated(false)
+        return
+      } else if (type !== 2) {
+        setIsAuthenticated(false)
+        return
       } else {
         setIsAuthenticated(true)
       }
@@ -28,30 +29,23 @@ export default function LoginRouter({
     }
   }, [])
 
-  let type = 0
-  if (token) {
-    type = jwt_decode(token).type
-  }
-
   if (isAuthenticated === null) {
     return <></>
   }
 
   return (
     <>
-      {!isAuthenticated ? (
+      {isAuthenticated ? (
         <Route
           {...rest}
           render={props => (
-            <LoginLayout heading={heading} isAuthenticated={isAuthenticated}>
-              <Component {...props} />
-            </LoginLayout>
+            <UserLayout isAuthenticated={isAuthenticated}>
+              <Component {...props}/>
+            </UserLayout>
           )}
         />
-      ) : type === 1 ? (
-        <Redirect to="/admin" />
       ) : (
-        <Redirect to="/user" />
+        <Redirect to="/login" />
       )}
     </>
   )

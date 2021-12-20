@@ -5,15 +5,19 @@ import jwt_decode from "jwt-decode"
 import AdminLayout from "./AdminLayout"
 
 export default function AdminRouter({ component: Component, ...rest }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  const [isAuthenticated, setIsAuthenticated] = useState(null)
   let token = localStorage?.getItem("refresh_token")
 
   useEffect(() => {
     if (token) {
-      let tokenExpiration = jwt_decode(token)?.exp
+      let decoded = jwt_decode(token)
+      let tokenExpiration = decoded?.exp
+      let type = decoded?.type
       let dateNow = new Date()
 
       if (tokenExpiration < dateNow.getTime() / 1000) {
+        setIsAuthenticated(false)
+      } else if (type !== 1) {
         setIsAuthenticated(false)
       } else {
         setIsAuthenticated(true)
@@ -23,23 +27,24 @@ export default function AdminRouter({ component: Component, ...rest }) {
     }
   }, [])
 
-  const type = jwt_decode(token)?.type
+  if (isAuthenticated === null) {
+    return <></>
+  }
+
   return (
-    <Route
-      {...rest}
-      render={props =>
-        isAuthenticated ? (
-          type === 1 ? (
+    <>
+      {isAuthenticated ? (
+        <Route
+          {...rest}
+          render={props => (
             <AdminLayout>
               <Component {...props} />
             </AdminLayout>
-          ) : (
-            <Redirect to="/" />
-          )
-        ) : (
-          <Redirect to="/login" />
-        )
-      }
-    />
+          )}
+        />
+      ) : (
+        <Redirect to="/login" />
+      )}
+    </>
   )
 }

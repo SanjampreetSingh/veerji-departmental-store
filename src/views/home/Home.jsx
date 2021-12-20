@@ -1,10 +1,11 @@
 import Heroes from "../../components/common/heroes/Heroes"
 import ResponsiveMap from "../../components/common/responsive-map/ResponsiveMap"
 
-export default function Home() {
+export default function Home(props) {
+  const { isAuthenticated } = props
   return (
     <>
-      <Heroes />
+      <Heroes isAuthenticated={isAuthenticated} />
       <ResponsiveMap />
     </>
   )

@@ -9,6 +9,7 @@ import {
 import HomeRouter from "../../layouts/home/HomeRouter"
 import AdminRouter from "../../layouts/admin/AdminRouter"
 import LoginRouter from "../../layouts/login/LoginRouter"
+import UserRouter from "../../layouts/user/UserRouter"
 
 // user views
 import Home from "../../views/home/Home"
@@ -32,8 +33,9 @@ export default function UIRouter() {
       <Switch>
         {/* Home Routes */}
         <HomeRouter exact path="/" component={Home} />
-        <HomeRouter exact path="/user/search" component={Search} />
-        <HomeRouter exact path="/user/pay" component={MakePayments} />
+        {/* User Router */}
+        <UserRouter exact path="/user/search" component={Search} />
+        <UserRouter exact path="/user/pay" component={MakePayments} />
         {/* Login Routes */}
         <LoginRouter
           exact
