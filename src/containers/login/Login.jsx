@@ -40,9 +40,9 @@ export default function Login() {
             "Bearer " + localStorage.getItem("access_token")
           const decoded = jwt_decode(localStorage.getItem("access_token"))
           if (decoded?.type === 1) {
-            history.push("/admin/home")
+            history.push("/admin")
           } else {
-            history.push("/")
+            history.push("/user")
           }
         }
       })
