@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom"
 import RetrieveCustomerComponent from "../../../../components/admin/customer/retrieve-customer/RetrieveCustomerComponent"
 import {
   getUser,
-  getAllProduct,
+  getAllListProducts,
   getAllRecurringProduct,
 } from "../../../../services/services"
 
@@ -12,7 +12,7 @@ export default function RetrieveCustomer() {
   const [error, setError] = useState(false)
   const [user, setUser] = useState([])
   const [product, setProduct] = useState([])
-  const [recurringProduct, setRecurringProduct] = useState([]);
+  const [recurringProduct, setRecurringProduct] = useState([])
   const [editButton, setEditButton] = useState(false)
 
   let id = window.location.href.split("/").pop()
@@ -31,13 +31,13 @@ export default function RetrieveCustomer() {
   }
 
   const loadProductData = () => {
-    getAllProduct(id)
+    getAllListProducts()
       .then(res => setProduct(res?.data))
       .catch(error => setError(error))
   }
 
   const loadRecurringProductData = () => {
-    getAllRecurringProduct(id)
+    getAllRecurringProduct()
       .then(res => setRecurringProduct(res?.data))
       .catch(error => setError(error))
   }

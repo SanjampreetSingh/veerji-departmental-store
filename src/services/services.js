@@ -27,6 +27,7 @@ export const deleteCategory = id => ApiCall(action.DELETE, `category/${id}/`)
 
 // Product API
 export const getAllProduct = () => ApiCall(action.GET, "product/")
+export const getAllListProducts = () => ApiCall(action.GET, "list/product/")
 export const getProduct = id => ApiCall(action.GET, `product/${id}/`)
 export const addProduct = data => ApiCall(action.POST, "product/", data)
 export const deleteProduct = id => ApiCall(action.DELETE, `product/${id}/`)
