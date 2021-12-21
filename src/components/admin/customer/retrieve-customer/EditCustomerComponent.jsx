@@ -8,19 +8,15 @@ export default function EditCustomerComponent(props) {
     <div className="row">
       <div className="col">
         <div className="h-100 p-5 bg-light border rounded-3">
-          <div className="py-5 text-center">
-            <CustomerIcon width="72" height="57" />
-            <h2>Update customer details</h2>
+          <div className="py-1 text-center">
+            <h3>Update customer details</h3>
           </div>
           <form>
             <div className="mb-3 row">
-              <label
-                htmlFor="customerName"
-                className="col-sm-12 col-form-label"
-              >
-                Customer name
-              </label>
-              <div className="col-sm-12">
+              <div className="col">
+                <label htmlFor="customerName" className="form-label">
+                  Customer name
+                </label>
                 <div className="input-group">
                   <span className="input-group-text">
                     <CustomerIcon />
@@ -38,13 +34,10 @@ export default function EditCustomerComponent(props) {
               </div>
             </div>
             <div className="mb-3 row">
-              <label
-                htmlFor="customerTelephone"
-                className="col-sm-12 col-form-label"
-              >
-                Customer telephone
-              </label>
-              <div className="col-sm-12">
+              <div className="col">
+                <label htmlFor="customerTelephone" className="form-label">
+                  Customer telephone
+                </label>
                 <div className="input-group">
                   <span className="input-group-text">
                     <PhoneIcon /> &nbsp; +91
@@ -58,13 +51,34 @@ export default function EditCustomerComponent(props) {
                     placeholder="Please enter customer telephone"
                   />
                 </div>
+                <small className="form-text text-muted">
+                  Please enter customer's telephone
+                </small>
               </div>
-              <small className="form-text text-muted">
-                Please enter customer's telephone
-              </small>
+              <div className="col">
+                <label htmlFor="customerEmail" className="form-label">
+                  Customer email
+                </label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <PhoneIcon />
+                  </span>
+                  <input
+                    type="tel"
+                    className="form-control"
+                    name="customerEmail"
+                    maxLength="10"
+                    aria-describedby="customerEmail"
+                    placeholder="Please enter customer email"
+                  />
+                </div>
+                <small className="form-text text-muted">
+                  Please enter customer's email
+                </small>
+              </div>
             </div>
             <div className="mb-3 row">
-              <div className="col-sm-4">
+              <div className="col">
                 <label htmlFor="house number" className="form-label">
                   Customer house number
                 </label>
@@ -79,7 +93,7 @@ export default function EditCustomerComponent(props) {
                   Please provide a valid house number.
                 </div>
               </div>
-              <div className="col-sm-8">
+              <div className="col">
                 <label htmlFor="customerLocality" className="form-label">
                   Customer locality
                 </label>

@@ -7,9 +7,9 @@ import UserLayout from "./UserLayout"
 export default function UserRouter({ component: Component, ...rest }) {
   const [isAuthenticated, setIsAuthenticated] = useState(null)
   let token = localStorage?.getItem("refresh_token")
-  if (token === undefined) {
+  if (token === undefined || token === null || token === "undefined") {
     localStorage.removeItem("access_token")
-    localStorage.removeItem("refresh-token")
+    localStorage.removeItem("refresh_token")
   }
 
   useEffect(() => {

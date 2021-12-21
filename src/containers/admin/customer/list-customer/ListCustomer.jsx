@@ -14,7 +14,7 @@ export default function ListCustomer() {
     loadLocalityData()
   }, [])
 
-  const loadData = () => {
+  async function loadData() {
     getAllUser()
       .then(res => {
         if (res?.error) {
@@ -26,7 +26,7 @@ export default function ListCustomer() {
       .catch(error => setError(error))
   }
 
-  const loadLocalityData = () => {
+  async function loadLocalityData() {
     getAllLocality()
       .then(res => {
         if (res?.error) {
