@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 
 import RegisterComponent from "../../components/register/RegisterComponent"
-import { getAllLocality, addUser } from "../../services/services"
+import { getAllLocalities, addUser } from "../../services/services"
 
 export default function Register() {
   const history = useHistory()
@@ -94,7 +94,7 @@ export default function Register() {
   }
 
   useEffect(() => {
-    getAllLocality()
+    getAllLocalities()
       .then(res => {
         if (res?.error) {
           setError(res.error)

@@ -38,7 +38,7 @@ export default function Header(props) {
                 </Link>
               </>
             ) : (
-              <Link className="btn btn-primary ms-2" to="/logout">
+              <Link className="btn btn-outline-danger ms-2" to="/logout">
                 Logout
               </Link>
             )}

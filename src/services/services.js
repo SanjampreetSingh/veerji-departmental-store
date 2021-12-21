@@ -12,6 +12,7 @@ export const getToken = data => ApiCall(action.POST, "token/", data)
 
 // Locality API
 export const getAllLocality = () => ApiCall(action.GET, "locality/")
+export const getAllLocalities = () => ApiCall(action.GET, "list/locality/")
 export const getLocality = id => ApiCall(action.GET, `locality/${id}/`)
 export const addLocality = data => ApiCall(action.POST, "locality/", data)
 export const deleteLocality = id => ApiCall(action.DELETE, `locality/${id}/`)
