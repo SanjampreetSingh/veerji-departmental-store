@@ -7,6 +7,7 @@ import { getUser } from "../../../../services/services"
 export default function RetrieveCustomer() {
   const [error, setError] = useState(false)
   const [user, setUser] = useState([])
+  const [editButton, setEditButton] = useState(false)
 
   let id = window.location.href.split("/").pop()
   const history = useHistory()
@@ -21,5 +22,11 @@ export default function RetrieveCustomer() {
       .catch(error => setError(error))
   }
 
-  return <RetrieveCustomerComponent user={user} />
+  return (
+    <RetrieveCustomerComponent
+      user={user}
+      editButton={editButton}
+      setEditButton={setEditButton}
+    />
+  )
 }
