@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react"
 
 import ListCustomerComponent from "../../../../components/admin/customer/list-customer/ListCustomerComponent"
-
 import { getAllUser, getAllLocality } from "../../../../services/services"
 
 export default function ListCustomer() {

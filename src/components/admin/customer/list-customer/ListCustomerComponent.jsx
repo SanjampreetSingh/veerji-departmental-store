@@ -56,7 +56,7 @@ export default function ListCustomerComponent(props) {
                   <span
                     className="d-inline-block"
                     data-bs-toggle="popover"
-                    title={"Call on " + "+91-12345-12345"}
+                    title={"Call on +91-" + value?.phone}
                     data-bs-trigger="hover focus"
                   >
                     <a href={"tel:+91-" + value?.phone} target="_blank">
