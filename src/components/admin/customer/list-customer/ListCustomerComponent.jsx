@@ -1,19 +1,11 @@
-import React from "react"
 import { Link } from "react-router-dom"
 
-export default function List() {
+export default function ListCustomerComponent(props) {
+  const { user } = props
   return (
     <>
       <div className="row">
-        <div className="col">
-          <Link
-            to="/admin/customer/add"
-            className="btn btn-primary mt-4"
-            role="button"
-          >
-            Add new users
-          </Link>
-        </div>
+        <div className="col" />
         <div className="col" />
         <div className="col">
           <label htmlFor="Sorting" className="form-label">
@@ -54,41 +46,50 @@ export default function List() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td scope="row">
-                <Link to={"/admin/customer/details/"}>User 1</Link>
-              </td>
-              <td>
-                <span
-                  className="d-inline-block"
-                  data-bs-toggle="popover"
-                  title={"Call on " + "+91-12345-12345"}
-                  data-bs-trigger="hover focus"
-                >
-                  <a href="tel:+91-12345-12345" target="_blank">
-                    +91-12345-12345
-                  </a>
-                </span>
-              </td>
-              <td>
-                <span
-                  className="d-inline-block"
-                  data-bs-toggle="popover"
-                  title="Find on google maps"
-                  data-bs-trigger="hover focus"
-                >
-                  <a
-                    href="http://maps.google.com/?q=Some Address to visit"
-                    target="_blank"
+            {user.map((value, index) => (
+              <tr key={index}>
+                <td scope="row">
+                  <Link to={"/admin/customer/details/" + value?.id}>
+                    {value?.name}
+                  </Link>
+                </td>
+                <td>
+                  <span
+                    className="d-inline-block"
+                    data-bs-toggle="popover"
+                    title={"Call on " + "+91-12345-12345"}
+                    data-bs-trigger="hover focus"
                   >
-                    Some Address to visit
-                  </a>
-                </span>
-              </td>
-              <td>
-                ₹ <b>100</b>
-              </td>
-            </tr>
+                    <a href={"tel:+91-" + value?.phone} target="_blank">
+                      {"+91-" + value?.phone}
+                    </a>
+                  </span>
+                </td>
+                <td>
+                  <span
+                    className="d-inline-block"
+                    data-bs-toggle="popover"
+                    title="Find on google maps"
+                    data-bs-trigger="hover focus"
+                  >
+                    <a
+                      href={
+                        "http://maps.google.com/?q=" +
+                        value?.house_number +
+                        " " +
+                        value?.locality_name
+                      }
+                      target="_blank"
+                    >
+                      {value?.house_number + " " + value?.locality_name}
+                    </a>
+                  </span>
+                </td>
+                <td>
+                  ₹ <b>100</b>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
 

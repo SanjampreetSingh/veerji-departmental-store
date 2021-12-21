@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 
 import ListLocalityComponent from "../../../../components/admin/locality/list-locality/ListLocalityComponent"
 import { getAllLocality, deleteLocality } from "../../../../services/services"

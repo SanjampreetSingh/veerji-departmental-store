@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 
 import { getAllLocality } from "../../../services/services"
 import SearchFormComponent from "../../../components/users/search-form/SearchFormComponent"

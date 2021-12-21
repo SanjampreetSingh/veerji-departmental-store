@@ -20,9 +20,9 @@ import Logout from "../../containers/logout/Logout"
 import Register from "../../containers/register/Register"
 // admin view
 import AdminHome from "../../views/admin/admin-home/AdminHome"
-import AdminCustomer from "../../views/admin/admin-customer/AdminCustomer"
 import CustomerAdd from "../../views/admin/customer/add/CustomerAdd"
 import CustomerDetails from "../../views/admin/customer/details/CustomerDetails"
+import ListCustomer from "../../containers/admin/customer/list-customer/ListCustomer"
 import AddLocality from "../../containers/admin/locality/add-locality/AddLocality"
 import ListLocality from "../../containers/admin/locality/list-locality/ListLocality"
 import EditLocality from "../../containers/admin/locality/edit-locality/EditLocality"
@@ -58,7 +58,7 @@ export default function UIRouter() {
           <Redirect to="/admin/home" />
         </Route>
         <AdminRouter exact path="/admin/home" component={AdminHome} />
-        <AdminRouter exact path="/admin/customer" component={AdminCustomer} />
+        <AdminRouter exact path="/admin/customer" component={ListCustomer} />
         <AdminRouter exact path="/admin/customer/add" component={CustomerAdd} />
         <AdminRouter
           exact
