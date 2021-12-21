@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 export default function ListCustomerComponent(props) {
-  const { user } = props
+  const { user, locality } = props
   return (
     <>
       <div className="row">
@@ -17,21 +17,20 @@ export default function ListCustomerComponent(props) {
             </option>
             <option defaultValue="1">Name: A-Z</option>
             <option defaultValue="2">Name: Z-A</option>
-            <option defaultValue="3">Contact: A-Z</option>
-            <option defaultValue="4">Address: A-Z</option>
-            <option defaultValue="5">Payment: High to Low</option>
+            <option defaultValue="3">Payment: High to Low</option>
           </select>
         </div>
         <div className="col">
           <label htmlFor="locality" className="form-label">
-            Select locality
+            Filter by locality
           </label>
           <select className="form-select" aria-label="Select locality">
-            <option disabled defaultValue="">
-              Open to select locality
-            </option>
-            <option defaultValue=""></option>
-            <option defaultValue="1">A-Z</option>
+            <option defaultValue>Open to select locality</option>
+            {locality?.map((value, index) => (
+              <option key={index} value={value?.id}>
+                {value?.name}
+              </option>
+            ))}
           </select>
         </div>
       </div>
@@ -46,7 +45,7 @@ export default function ListCustomerComponent(props) {
             </tr>
           </thead>
           <tbody>
-            {user.map((value, index) => (
+            {user?.map((value, index) => (
               <tr key={index}>
                 <td scope="row">
                   <Link to={"/admin/customer/details/" + value?.id}>

@@ -7,6 +7,10 @@ import HomeLayout from "./HomeLayout"
 export default function HomeRouter({ component: Component, ...rest }) {
   const [isAuthenticated, setIsAuthenticated] = useState(null)
   let token = localStorage?.getItem("refresh_token")
+  if (token === undefined) {
+    localStorage.removeItem("access_token")
+    localStorage.removeItem("refresh-token")
+  }
 
   useEffect(() => {
     if (token) {
