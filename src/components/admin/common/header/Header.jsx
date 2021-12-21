@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import CartIcon from "../../../../assets/icons/CartIcon"
 
 export default function Header() {
+  let uri = window.location.href.split("/").pop()
+
   return (
     <>
       <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
@@ -26,14 +28,17 @@ export default function Header() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <input
-          className="form-control form-control-dark w-100"
-          type="text"
-          placeholder="Search customers by name, house number and contact"
-          aria-label="Search"
-          spellCheck="false"
-          data-ms-editor="true"
-        />
+        {uri === "customer" ? (
+          <input
+            className="form-control form-control w-100"
+            type="text"
+            placeholder="Search customers by name, house number and contact"
+            aria-label="Search"
+            spellCheck="false"
+            data-ms-editor="true"
+          />
+        ) : null}
+
         <div className="navbar-nav">
           <div className="nav-item text-nowrap">
             <Link className="nav-link px-3" to="/logout">
