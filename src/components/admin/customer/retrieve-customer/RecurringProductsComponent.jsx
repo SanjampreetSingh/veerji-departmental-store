@@ -33,6 +33,12 @@ export default function RecurringProductsComponent(props) {
             <button className="btn btn-danger">X</button>
           </div>
         </div>
+        <div className="row mb-3">
+          <div className="col">
+            <button className="btn btn-primary">Update</button>
+          </div>
+          <div className="col" />
+        </div>
       </form>
     </>
   )
