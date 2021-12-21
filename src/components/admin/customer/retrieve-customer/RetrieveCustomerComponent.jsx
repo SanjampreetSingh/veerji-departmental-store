@@ -1,5 +1,6 @@
 import CustomerDetailComponent from "./DetailCustomerComponent"
 import EditCustomerComponent from "./EditCustomerComponent"
+import RecurringProductsComponent from "./RecurringProductsComponent"
 
 export default function RetrieveCustomerComponent(props) {
   const { user, editButton, setEditButton } = props
@@ -12,7 +13,7 @@ export default function RetrieveCustomerComponent(props) {
       )}
 
       <div className="border-top mt-3" />
-      <h3>Recurring Product</h3>
+      <RecurringProductsComponent />
     </>
   )
 }

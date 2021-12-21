@@ -6,16 +6,9 @@ export default function DetailCustomerComponent(prop) {
         <div className="h-100 p-5 bg-light border rounded-3">
           <div className="row">
             <div className="col">
-              <h2>{user?.name}</h2>
-            </div>
-            <div className="col">
-              <a
-                href="#"
-                className="btn btn-outline-primary"
-                onClick={() => setEditButton(true)}
-              >
-                Edit
-              </a>
+              <div className="py-1 text-center">
+                <h2>{user?.name}</h2>
+              </div>
             </div>
           </div>
           <div className="border-top mt-3" />
@@ -83,6 +76,13 @@ export default function DetailCustomerComponent(prop) {
               </p>
             </div>
           </div>
+          <a
+            href="#"
+            className="btn btn-outline-primary"
+            onClick={() => setEditButton(true)}
+          >
+            Edit
+          </a>
         </div>
       </div>
     </div>
