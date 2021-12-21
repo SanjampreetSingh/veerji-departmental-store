@@ -1,9 +1,9 @@
 import CustomerDetailComponent from "./DetailCustomerComponent"
 import EditCustomerComponent from "./EditCustomerComponent"
-import RecurringProductsComponent from "./RecurringProductsComponent"
+import RecurringProductComponent from "./RecurringProductComponent"
 
 export default function RetrieveCustomerComponent(props) {
-  const { user, editButton, setEditButton } = props
+  const { user, product, editButton, setEditButton } = props
   return (
     <>
       {!editButton ? (
@@ -12,8 +12,8 @@ export default function RetrieveCustomerComponent(props) {
         <EditCustomerComponent setEditButton={setEditButton} />
       )}
 
-      <div className="border-top mt-3" />
-      <RecurringProductsComponent />
+      <div className="border-top my-3" />
+      <RecurringProductComponent product={product} />
     </>
   )
 }
