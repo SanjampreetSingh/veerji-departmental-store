@@ -3,7 +3,7 @@ import EditCustomerComponent from "./EditCustomerComponent"
 import RecurringProductComponent from "./RecurringProductComponent"
 
 export default function RetrieveCustomerComponent(props) {
-  const { user, product, editButton, setEditButton } = props
+  const { user, product, recurringProduct, editButton, setEditButton } = props
   return (
     <>
       {!editButton ? (
@@ -13,7 +13,10 @@ export default function RetrieveCustomerComponent(props) {
       )}
 
       <div className="border-top my-3" />
-      <RecurringProductComponent product={product} />
+      <RecurringProductComponent
+        product={product}
+        recurringProduct={recurringProduct}
+      />
     </>
   )
 }

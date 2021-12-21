@@ -9,14 +9,20 @@ import {
 } from "../../../../services/services"
 
 export default function RetrieveCustomer() {
+  let id = window.location.href.split("/").pop()
+  const history = useHistory()
+
+  const recurringObj = Object.freeze({
+    index: 0,
+    productId: "",
+    quantity: "",
+  })
+
   const [error, setError] = useState(false)
   const [user, setUser] = useState([])
   const [product, setProduct] = useState([])
-  const [recurringProduct, setRecurringProduct] = useState([])
+  const [recurringProduct, setRecurringProduct] = useState([recurringObj])
   const [editButton, setEditButton] = useState(false)
-
-  let id = window.location.href.split("/").pop()
-  const history = useHistory()
 
   useEffect(() => {
     loadData()
@@ -46,6 +52,7 @@ export default function RetrieveCustomer() {
     <RetrieveCustomerComponent
       user={user}
       product={product}
+      recurringProduct={recurringProduct}
       editButton={editButton}
       setEditButton={setEditButton}
     />

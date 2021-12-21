@@ -1,5 +1,5 @@
 export default function RecurringProductComponent(props) {
-  const { product } = props
+  const { product, recurringProduct } = props
   return (
     <div className="row align-items-md-stretch">
       <div className="col">
@@ -14,32 +14,36 @@ export default function RecurringProductComponent(props) {
                 <button className="btn btn-outline-primary">Add product</button>
               </div>
             </div>
-            <div className="mb-3 row">
-              <div className="col">
-                <select className="form-control" name="" id="">
-                  <option defaultValue value="">
-                    Please select a product
-                  </option>
-                  {product?.map((value, index) => (
-                    <option key={index} value={value?.name}>
-                      {value?.name}
+            {recurringProduct?.map((val, idx) => (
+              <div className="mb-3 row" key={idx}>
+                <div className="col">
+                  <select className="form-control" name="" id="">
+                    <option defaultValue value="">
+                      Please select a product
                     </option>
-                  ))}
-                </select>
+                    {product?.map((value, index) => (
+                      <option key={index} value={value?.name}>
+                        {value?.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div className="col">
+                  <input
+                    type="number"
+                    className="form-control"
+                    name="quantity"
+                    placeholder="Please enter quantity"
+                    min={0}
+                    value={val?.quantity}
+                  />
+                </div>
+                <div className="col-md-1">
+                  <button className="btn btn-danger">X</button>
+                </div>
               </div>
-              <div className="col">
-                <input
-                  type="number"
-                  className="form-control"
-                  name="quantity"
-                  placeholder="Please enter quantity"
-                  min={0}
-                />
-              </div>
-              <div className="col-md-1">
-                <button className="btn btn-danger">X</button>
-              </div>
-            </div>
+            ))}
+
             <div className="row mb-3">
               <div className="col">
                 <button className="btn btn-primary">Update</button>
