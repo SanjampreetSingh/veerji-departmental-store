@@ -3,7 +3,14 @@ import EditCustomerComponent from "./EditCustomerComponent"
 import RecurringProductComponent from "./RecurringProductComponent"
 
 export default function RetrieveCustomerComponent(props) {
-  const { user, product, recurringProduct, editButton, setEditButton } = props
+  const {
+    user,
+    product,
+    recurringProduct,
+    editButton,
+    setEditButton,
+    handleRecurringArray,
+  } = props
   return (
     <>
       {!editButton ? (
@@ -16,6 +23,7 @@ export default function RetrieveCustomerComponent(props) {
       <RecurringProductComponent
         product={product}
         recurringProduct={recurringProduct}
+        handleRecurringArray={handleRecurringArray}
       />
     </>
   )

@@ -1,5 +1,5 @@
 export default function RecurringProductComponent(props) {
-  const { product, recurringProduct } = props
+  const { product, recurringProduct, handleRecurringArray } = props
   return (
     <div className="row align-items-md-stretch">
       <div className="col">
@@ -11,7 +11,13 @@ export default function RecurringProductComponent(props) {
             <div className="row mb-3">
               <div className="col" />
               <div className="col-md-2">
-                <button className="btn btn-outline-primary">Add product</button>
+                <button
+                  type="button"
+                  className="btn btn-outline-primary"
+                  onClick={() => handleRecurringArray("add")}
+                >
+                  Add product
+                </button>
               </div>
             </div>
             {recurringProduct?.map((val, idx) => (
@@ -35,11 +41,19 @@ export default function RecurringProductComponent(props) {
                     name="quantity"
                     placeholder="Please enter quantity"
                     min={0}
-                    value={val?.quantity}
+                    // value={val?.quantity}
                   />
                 </div>
                 <div className="col-md-1">
-                  <button className="btn btn-danger">X</button>
+                  <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={() => {
+                      handleRecurringArray("delete", val?.recurringIndex)
+                    }}
+                  >
+                    X
+                  </button>
                 </div>
               </div>
             ))}
