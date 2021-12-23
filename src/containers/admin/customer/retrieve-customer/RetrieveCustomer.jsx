@@ -28,7 +28,7 @@ export default function RetrieveCustomer() {
   useEffect(() => {
     loadData()
     loadProductData()
-    // loadRecurringProductData()
+    loadRecurringProductData()
   }, [])
 
   useEffect(() => {
@@ -49,11 +49,12 @@ export default function RetrieveCustomer() {
 
   const loadRecurringProductData = () => {
     getAllRecurringProduct()
-      .then(res => setRecurringProduct(res?.data))
+      .then(res => {
+        let data = JSON.parse(res?.data?.product)
+        setRecurringProduct(data)
+      })
       .catch(error => setError(error))
   }
-
-  // handleArray add, delete, update
 
   const handleRecurringArray = (key, idx = "", obj = recurringObj) => {
     switch (key) {
@@ -63,14 +64,24 @@ export default function RetrieveCustomer() {
         break
       case "delete":
         setRecurringProduct(
-          recurringProduct.filter(item => item.recurringIndex !== idx)
+          recurringProduct?.filter(item => item?.recurringIndex !== idx)
         )
-        break
-      case "update":
         break
     }
   }
-  const handleObj = (idx, obj) => {}
+
+  const handleRecurringObj = (idx, key, value) => {
+    const objIndex = recurringProduct?.findIndex(
+      obj => obj.recurringIndex === idx
+    )
+    const updatedObj = JSON.parse(JSON.stringify(recurringProduct[objIndex]))
+    updatedObj[key] = value
+    setRecurringProduct(item => [
+      ...item.slice(0, objIndex),
+      updatedObj,
+      ...item.slice(objIndex + 1),
+    ])
+  }
 
   return (
     <RetrieveCustomerComponent
@@ -80,6 +91,7 @@ export default function RetrieveCustomer() {
       editButton={editButton}
       setEditButton={setEditButton}
       handleRecurringArray={handleRecurringArray}
+      handleRecurringObj={handleRecurringObj}
     />
   )
 }
