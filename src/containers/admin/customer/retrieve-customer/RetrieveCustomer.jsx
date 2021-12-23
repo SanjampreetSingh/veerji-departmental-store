@@ -5,12 +5,12 @@ import RetrieveCustomerComponent from "../../../../components/admin/customer/ret
 import {
   getUser,
   getAllListProducts,
-  getAllRecurringProduct,
+  getRecurringProduct,
 } from "../../../../services/services"
 import { generateRecurringId } from "../../../../utils/common/common"
 
 export default function RetrieveCustomer() {
-  let id = window.location.href.split("/").pop()
+  let userId = window.location.href.split("/").pop()
   const history = useHistory()
 
   const recurringObj = {
@@ -36,7 +36,7 @@ export default function RetrieveCustomer() {
   }, [recurringProduct])
 
   const loadData = () => {
-    getUser(id)
+    getUser(userId)
       .then(res => setUser(res?.data))
       .catch(error => setError(error))
   }
@@ -48,7 +48,7 @@ export default function RetrieveCustomer() {
   }
 
   const loadRecurringProductData = () => {
-    getAllRecurringProduct()
+    getRecurringProduct(id)
       .then(res => {
         let data = JSON.parse(res?.data?.product)
         setRecurringProduct(data)
