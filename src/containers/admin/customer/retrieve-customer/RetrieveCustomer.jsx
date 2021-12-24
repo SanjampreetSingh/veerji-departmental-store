@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom"
 import RetrieveCustomerComponent from "../../../../components/admin/customer/retrieve-customer/RetrieveCustomerComponent"
 import {
   getUser,
+  getAllLocality,
   getAllListProducts,
   getRecurringProduct,
   updateRecurringProduct,
@@ -20,22 +21,57 @@ export default function RetrieveCustomer() {
     quantity: "",
   }
 
+  const formObj = Object.freeze({
+    name: "",
+    email: "",
+    phone: "",
+    house_number: "",
+    locality: "",
+    locality_name: "",
+  })
+
+  const errorObj = Object.freeze({
+    error: false,
+    name: "",
+    email: "",
+    phone: "",
+    house_number: "",
+    locality: "",
+  })
+
   const [error, setError] = useState(false)
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState(formObj)
   const [product, setProduct] = useState([])
   const [recurringProduct, setRecurringProduct] = useState([])
   const [editButton, setEditButton] = useState(false)
-  const [submitError, setSubmitError] = useState("");
+  const [submitError, setSubmitError] = useState("")
+  const [locality, setLocality] = useState([])
 
   useEffect(() => {
-    loadData()
+    loadUserData()
     loadProductData()
     loadRecurringProductData()
   }, [])
 
-  const loadData = () => {
+  useEffect(() => {
+    if (editButton === true) {
+      loadLocalityData()
+    }
+  }, [editButton])
+
+  const loadUserData = () => {
     getUser(userId)
-      .then(res => setUser(res?.data))
+      .then(res =>
+        setUser(prev => ({
+          ...prev,
+          name: res?.data?.name,
+          email: res?.data?.email,
+          phone: res?.data?.phone,
+          house_number: res?.data?.house_number,
+          locality: res?.data?.locality,
+          locality_name: res?.data?.locality_name,
+        }))
+      )
       .catch(error => setError(error))
   }
 
@@ -45,12 +81,15 @@ export default function RetrieveCustomer() {
       .catch(error => setError(error))
   }
 
+  const loadLocalityData = () => {
+    getAllLocality()
+      .then(res => setLocality(res?.data))
+      .catch(error => setError(error))
+  }
+
   const loadRecurringProductData = () => {
     getRecurringProduct(userId)
-      .then(res => {
-        let data = JSON.parse(res?.data?.product)
-        setRecurringProduct(data)
-      })
+      .then(res => setRecurringProduct(JSON.parse(res?.data?.product)))
       .catch(error => setError(error))
   }
 
@@ -96,16 +135,28 @@ export default function RetrieveCustomer() {
     ])
   }
 
+  const handleUserFormChange = e => {
+    const name = e.target?.name
+    const value = e?.target?.value?.trim()
+    setUser(prev => ({
+      ...prev,
+      [name]: value,
+    }))
+    // updateErrorState(name, value)
+  }
+
   return (
     <RetrieveCustomerComponent
       user={user}
       product={product}
       recurringProduct={recurringProduct}
+      locality={locality}
       editButton={editButton}
       setEditButton={setEditButton}
       handleRecurringArray={handleRecurringArray}
       handleRecurringObj={handleRecurringObj}
       handleRecurringSubmit={handleRecurringSubmit}
+      handleUserFormChange={handleUserFormChange}
     />
   )
 }

@@ -3,7 +3,7 @@ import HomeIcon from "../../../../assets/icons/HomeIcon"
 import PhoneIcon from "../../../../assets/icons/PhoneIcon"
 
 export default function EditCustomerComponent(props) {
-  const { setEditButton } = props
+  const { user, locality, setEditButton, handleUserFormChange } = props
   return (
     <div className="row">
       <div className="col">
@@ -24,8 +24,10 @@ export default function EditCustomerComponent(props) {
                   <input
                     type="text"
                     className="form-control"
-                    name="customerName"
+                    name="name"
                     placeholder="Please enter customer name"
+                    value={user?.name}
+                    onChange={handleUserFormChange}
                   />
                 </div>
                 <small className="form-text text-muted">
@@ -45,10 +47,12 @@ export default function EditCustomerComponent(props) {
                   <input
                     type="tel"
                     className="form-control"
-                    name="customerTelephone"
+                    name="phone"
                     maxLength="10"
                     aria-describedby="customerTelephone"
                     placeholder="Please enter customer telephone"
+                    value={user?.phone}
+                    onChange={handleUserFormChange}
                   />
                 </div>
                 <small className="form-text text-muted">
@@ -66,10 +70,12 @@ export default function EditCustomerComponent(props) {
                   <input
                     type="tel"
                     className="form-control"
-                    name="customerEmail"
+                    name="email"
                     maxLength="10"
                     aria-describedby="customerEmail"
                     placeholder="Please enter customer email"
+                    value={user?.email}
+                    onChange={handleUserFormChange}
                   />
                 </div>
                 <small className="form-text text-muted">
@@ -79,14 +85,21 @@ export default function EditCustomerComponent(props) {
             </div>
             <div className="mb-3 row">
               <div className="col">
-                <label htmlFor="house number" className="form-label">
+                <label htmlFor="house_number" className="form-label">
                   Customer house number
                 </label>
                 <div className="input-group">
                   <span className="input-group-text">
                     <HomeIcon />
                   </span>
-                  <input type="text" className="form-control" maxLength="10" />
+                  <input
+                    type="text"
+                    className="form-control"
+                    maxLength="10"
+                    name="house_number"
+                    value={user?.house_number}
+                    onChange={handleUserFormChange}
+                  />
                 </div>
                 <div className="form-text">Please enter house number.</div>
                 <div className="invalid-feedback">
@@ -97,11 +110,23 @@ export default function EditCustomerComponent(props) {
                 <label htmlFor="customerLocality" className="form-label">
                   Customer locality
                 </label>
-                <select className="form-select" aria-label="Select Locality">
-                  <option disabled defaultValue="">
-                    Open to select locality
+                <select
+                  className="form-select"
+                  aria-label="Select Locality"
+                  name="locality"
+                  aria-labelledby="locality"
+                  autoComplete="off"
+                  value={user?.locality}
+                  onChange={handleUserFormChange}
+                >
+                  <option value="" defaultValue>
+                    Please select locality
                   </option>
-                  <option defaultValue="1">One</option>
+                  {locality?.map((val, idx) => (
+                    <option key={idx} value={val?.id}>
+                      {val?.name}
+                    </option>
+                  ))}
                 </select>
                 <small className="form-text text-muted">
                   Please select customer's locality
@@ -112,7 +137,7 @@ export default function EditCustomerComponent(props) {
               </div>
             </div>
             <div className="col mb-3">
-              <button type="submit" className="btn btn-primary me-2">
+              <button type="button" className="btn btn-primary me-2">
                 Submit
               </button>
               <button

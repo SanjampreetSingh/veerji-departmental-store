@@ -7,18 +7,25 @@ export default function RetrieveCustomerComponent(props) {
     user,
     product,
     recurringProduct,
+    locality,
     editButton,
     setEditButton,
     handleRecurringArray,
     handleRecurringObj,
     handleRecurringSubmit,
+    handleUserFormChange,
   } = props
   return (
     <>
       {!editButton ? (
         <CustomerDetailComponent user={user} setEditButton={setEditButton} />
       ) : (
-        <EditCustomerComponent setEditButton={setEditButton} />
+        <EditCustomerComponent
+          user={user}
+          locality={locality}
+          setEditButton={setEditButton}
+          handleUserFormChange={handleUserFormChange}
+        />
       )}
 
       <div className="border-top my-3" />
