@@ -25,6 +25,7 @@ export default function RetrieveCustomerComponent(props) {
           locality={locality}
           setEditButton={setEditButton}
           handleUserFormChange={handleUserFormChange}
+          handleSubmit={handleSubmit}
         />
       )}
 

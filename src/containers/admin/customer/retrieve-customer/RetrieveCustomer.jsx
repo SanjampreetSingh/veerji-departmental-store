@@ -28,7 +28,7 @@ export default function RetrieveCustomer() {
     locality: "",
     locality_name: "",
     payment: "",
-    recurring_product: [],
+    recurring_product: "[]",
   })
 
   // eslint-disable-next-line no-unused-vars
@@ -40,7 +40,7 @@ export default function RetrieveCustomer() {
     house_number: "",
     locality: "",
     payment: "",
-    recurring_product: [],
+    recurring_product: "[]",
   })
 
   // eslint-disable-next-line no-unused-vars
@@ -63,6 +63,10 @@ export default function RetrieveCustomer() {
     }
   }, [editButton])
 
+  useEffect((e) => {
+    handleUserFormChange(e)
+  }, [recurringProduct]);
+
   const loadUserData = () => {
     getUser(userId)
       .then(res => {
@@ -75,9 +79,9 @@ export default function RetrieveCustomer() {
           locality: res?.data?.locality,
           locality_name: res?.data?.locality_name,
           payment: res?.data?.payment,
-          recurring_product: JSON.parse(res?.data?.product),
+          recurring_product: JSON.parse(res?.data?.recurring_product),
         }))
-        setRecurringProduct(JSON.parse(res?.data?.product))
+        setRecurringProduct(JSON.parse(res?.data?.recurring_product))
       })
       .catch(error => setError(error))
   }
@@ -100,6 +104,7 @@ export default function RetrieveCustomer() {
         if (res?.error) {
           setSubmitError(res.error)
         } else {
+          setEditButton(false)
           history.push("/admin/customer/details/" + userId)
         }
       })
@@ -134,7 +139,7 @@ export default function RetrieveCustomer() {
   }
 
   const handleUserFormChange = e => {
-    const name = e.target?.name
+    const name = e?.target?.name
     const value = e?.target?.value?.trim()
     setUser(prev => ({
       ...prev,

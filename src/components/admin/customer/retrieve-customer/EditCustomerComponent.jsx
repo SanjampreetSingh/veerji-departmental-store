@@ -3,7 +3,8 @@ import HomeIcon from "../../../../assets/icons/HomeIcon"
 import PhoneIcon from "../../../../assets/icons/PhoneIcon"
 
 export default function EditCustomerComponent(props) {
-  const { user, locality, setEditButton, handleUserFormChange } = props
+  const { user, locality, setEditButton, handleSubmit, handleUserFormChange } =
+    props
   return (
     <div className="row">
       <div className="col">
@@ -137,7 +138,11 @@ export default function EditCustomerComponent(props) {
               </div>
             </div>
             <div className="col mb-3">
-              <button type="button" className="btn btn-primary me-2">
+              <button
+                type="button"
+                className="btn btn-primary me-2"
+                onClick={handleSubmit}
+              >
                 Submit
               </button>
               <button

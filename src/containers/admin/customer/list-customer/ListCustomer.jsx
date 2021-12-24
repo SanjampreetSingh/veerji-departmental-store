@@ -14,11 +14,12 @@ export default function ListCustomer() {
     loadLocalityData()
   }, [])
 
-  async function loadData() {
+  function loadData() {
     getAllUser()
       .then(res => {
         if (res?.error) {
-          setError(res.error)
+          console.log(res?.error)
+          setError(res?.error)
         } else {
           setUser(res?.data)
         }

@@ -37,7 +37,7 @@ export const getAllUser = () => ApiCall(action.GET, "user/")
 export const getUser = userId => ApiCall(action.GET, `user/${userId}/`)
 export const addUser = data => ApiCall(action.POST, "user/", data)
 export const updateUser = (userId, data) =>
-    ApiCall(action.PUT, `user/${userId}/`, data)
+    ApiCall(action.PATCH, `user/${userId}/`, data)
 
 // Sale API
 export const getAllSale = () => ApiCall(action.GET, "sale/")

@@ -72,7 +72,7 @@ export default function DetailCustomerComponent(prop) {
             </div>
             <div className="col">
               <p>
-                Pending Payment: ₹ <b>100</b>
+                Pending Payment: ₹ <b>{user?.payment}</b>
               </p>
             </div>
           </div>
@@ -81,7 +81,7 @@ export default function DetailCustomerComponent(prop) {
             className="btn btn-outline-primary"
             onClick={() => setEditButton(true)}
           >
-            Edit
+            Update Details
           </a>
         </div>
       </div>

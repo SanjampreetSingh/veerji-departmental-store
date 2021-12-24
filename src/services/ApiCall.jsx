@@ -98,6 +98,9 @@ export default async function ApiCall(action, url, data = {}) {
     case actionTypes.PUT:
       response = await instance.put(url, data)
       return response
+    case actionTypes.PATCH:
+      response = await instance.patch(url, data)
+      return response
     case actionTypes.DELETE:
       response = await instance.delete(url)
       return response

@@ -59,7 +59,11 @@ export default function ListCustomerComponent(props) {
                     title={"Call on +91-" + value?.phone}
                     data-bs-trigger="hover focus"
                   >
-                    <a href={"tel:+91-" + value?.phone} target="_blank" rel="noreferrer">
+                    <a
+                      href={"tel:+91-" + value?.phone}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       {"+91-" + value?.phone}
                     </a>
                   </span>
@@ -78,14 +82,15 @@ export default function ListCustomerComponent(props) {
                         " " +
                         value?.locality_name
                       }
-                      target="_blank" rel="noreferrer"
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       {value?.house_number + " " + value?.locality_name}
                     </a>
                   </span>
                 </td>
                 <td>
-                  ₹ <b>100</b>
+                  ₹ <b>{value?.payment}</b>
                 </td>
               </tr>
             ))}
