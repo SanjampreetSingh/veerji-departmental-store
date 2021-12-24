@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 
 export default function ListLocalityComponent(props) {
+  // eslint-disable-next-line no-unused-vars
   const { locality, deleteData, getError, deleteResponse } = props
 
   return (
@@ -54,6 +55,7 @@ export default function ListLocalityComponent(props) {
                     <a
                       href={"http://maps.google.com/?q=" + data.name}
                       target="_blank"
+                      rel="noreferrer"
                     >
                       {data.name}
                     </a>

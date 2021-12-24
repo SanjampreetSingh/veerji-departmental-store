@@ -1,4 +1,4 @@
-export default function UserCard(props) {
+export default function UserCard() {
   return (
     <div className="list-group">
       <div className="list-group-item list-group-item-action d-flex gap-3 py-3">

@@ -4,10 +4,9 @@ import { useHistory, useParams } from "react-router-dom"
 import RetrieveCustomerComponent from "../../../../components/admin/customer/retrieve-customer/RetrieveCustomerComponent"
 import {
   getUser,
+  updateUser,
   getAllLocality,
   getAllListProducts,
-  getRecurringProduct,
-  updateRecurringProduct,
 } from "../../../../services/services"
 import { generateRecurringId } from "../../../../utils/common/common"
 
@@ -28,8 +27,11 @@ export default function RetrieveCustomer() {
     house_number: "",
     locality: "",
     locality_name: "",
+    payment: "",
+    recurring_product: [],
   })
 
+  // eslint-disable-next-line no-unused-vars
   const errorObj = Object.freeze({
     error: false,
     name: "",
@@ -37,8 +39,11 @@ export default function RetrieveCustomer() {
     phone: "",
     house_number: "",
     locality: "",
+    payment: "",
+    recurring_product: [],
   })
 
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(false)
   const [user, setUser] = useState(formObj)
   const [product, setProduct] = useState([])
@@ -50,7 +55,6 @@ export default function RetrieveCustomer() {
   useEffect(() => {
     loadUserData()
     loadProductData()
-    loadRecurringProductData()
   }, [])
 
   useEffect(() => {
@@ -61,7 +65,7 @@ export default function RetrieveCustomer() {
 
   const loadUserData = () => {
     getUser(userId)
-      .then(res =>
+      .then(res => {
         setUser(prev => ({
           ...prev,
           name: res?.data?.name,
@@ -70,8 +74,11 @@ export default function RetrieveCustomer() {
           house_number: res?.data?.house_number,
           locality: res?.data?.locality,
           locality_name: res?.data?.locality_name,
+          payment: res?.data?.payment,
+          recurring_product: JSON.parse(res?.data?.product),
         }))
-      )
+        setRecurringProduct(JSON.parse(res?.data?.product))
+      })
       .catch(error => setError(error))
   }
 
@@ -87,17 +94,8 @@ export default function RetrieveCustomer() {
       .catch(error => setError(error))
   }
 
-  const loadRecurringProductData = () => {
-    getRecurringProduct(userId)
-      .then(res => setRecurringProduct(JSON.parse(res?.data?.product)))
-      .catch(error => setError(error))
-  }
-
-  const handleRecurringSubmit = () => {
-    updateRecurringProduct(userId, {
-      product: JSON.stringify(recurringProduct),
-      user: userId,
-    })
+  const handleSubmit = () => {
+    updateUser(userId, user)
       .then(res => {
         if (res?.error) {
           setSubmitError(res.error)
@@ -141,6 +139,7 @@ export default function RetrieveCustomer() {
     setUser(prev => ({
       ...prev,
       [name]: value,
+      recurring_product: JSON.stringify(recurringProduct),
     }))
     // updateErrorState(name, value)
   }
@@ -152,10 +151,11 @@ export default function RetrieveCustomer() {
       recurringProduct={recurringProduct}
       locality={locality}
       editButton={editButton}
+      submitError={submitError}
       setEditButton={setEditButton}
       handleRecurringArray={handleRecurringArray}
       handleRecurringObj={handleRecurringObj}
-      handleRecurringSubmit={handleRecurringSubmit}
+      handleSubmit={handleSubmit}
       handleUserFormChange={handleUserFormChange}
     />
   )

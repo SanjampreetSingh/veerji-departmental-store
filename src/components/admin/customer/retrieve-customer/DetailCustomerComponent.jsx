@@ -22,7 +22,7 @@ export default function DetailCustomerComponent(prop) {
                   title={"Call on +91-" + user?.phone}
                   data-bs-trigger="hover focus"
                 >
-                  <a href={"tel:+91-" + user?.phone} target="_blank">
+                  <a href={"tel:+91-" + user?.phone} target="_blank" rel="noreferrer">
                     {"+91-" + user?.phone}
                   </a>
                 </span>
@@ -37,7 +37,7 @@ export default function DetailCustomerComponent(prop) {
                   title={"Email here" + user?.email}
                   data-bs-trigger="hover focus"
                 >
-                  <a href={"mailto:" + user?.email} target="_blank">
+                  <a href={"mailto:" + user?.email} target="_blank" rel="noreferrer">
                     {user?.email}
                   </a>
                 </span>
@@ -63,7 +63,7 @@ export default function DetailCustomerComponent(prop) {
                       " " +
                       user?.locality_name
                     }
-                    target="_blank"
+                    target="_blank" rel="noreferrer"
                   >
                     {user?.house_number + " " + user?.locality_name}
                   </a>

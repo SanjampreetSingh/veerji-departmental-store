@@ -59,7 +59,7 @@ export default function ListCustomerComponent(props) {
                     title={"Call on +91-" + value?.phone}
                     data-bs-trigger="hover focus"
                   >
-                    <a href={"tel:+91-" + value?.phone} target="_blank">
+                    <a href={"tel:+91-" + value?.phone} target="_blank" rel="noreferrer">
                       {"+91-" + value?.phone}
                     </a>
                   </span>
@@ -78,7 +78,7 @@ export default function ListCustomerComponent(props) {
                         " " +
                         value?.locality_name
                       }
-                      target="_blank"
+                      target="_blank" rel="noreferrer"
                     >
                       {value?.house_number + " " + value?.locality_name}
                     </a>

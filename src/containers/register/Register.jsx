@@ -2,11 +2,7 @@ import { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 
 import RegisterComponent from "../../components/register/RegisterComponent"
-import {
-  getAllLocalities,
-  addUser,
-  addRecurringProduct,
-} from "../../services/services"
+import { getAllLocalities, addUser } from "../../services/services"
 
 export default function Register() {
   const history = useHistory()
@@ -34,19 +30,6 @@ export default function Register() {
   const [submitError, setSubmitError] = useState("")
   const [formState, setFormState] = useState(formObj)
 
-  const createReccuringProduct = userId => {
-    addRecurringProduct({
-      user: userId,
-      product: '[{ recurringIndex: "", productId: "", quantity: "" }]',
-    }).then(res => {
-      if (res?.error) {
-        setSubmitError(res?.error)
-      } else {
-        history.push("/login")
-      }
-    })
-  }
-
   const handleSubmit = e => {
     e.preventDefault()
     addUser({
@@ -61,7 +44,7 @@ export default function Register() {
         if (res?.error) {
           setSubmitError(res?.error)
         } else {
-          createReccuringProduct(res?.data?.id)
+          history.push("/login")
         }
       })
       .catch(error => setSubmitError(error))

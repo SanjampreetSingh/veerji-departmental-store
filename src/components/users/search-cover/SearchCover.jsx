@@ -1,6 +1,6 @@
 import milkCover from "../../../assets/images/milk-cover.png"
 
-export default function SearchCover(props) {
+export default function SearchCover() {
   return (
     <>
       <div className="col-lg-5 p-3 p-lg-5 pt-lg-3">

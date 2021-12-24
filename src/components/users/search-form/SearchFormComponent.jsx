@@ -2,7 +2,7 @@ import HomeIcon from "../../../assets/icons/HomeIcon"
 import PhoneIcon from "../../../assets/icons/PhoneIcon"
 
 export default function SearchFormComponent(props) {
-  const { locality, getError } = props
+  const { locality } = props
 
   return (
     <div className="container my-2 p-3">

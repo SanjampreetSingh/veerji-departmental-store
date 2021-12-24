@@ -38,5 +38,5 @@ export default function ListCustomer() {
       .catch(error => setError(error))
   }
 
-  return <ListCustomerComponent user={user} locality={locality} />
+  return <ListCustomerComponent user={user} locality={locality} error={error} />
 }

@@ -1,4 +1,4 @@
-export default function UserPaymentModal(params) {
+export default function UserPaymentModal() {
   return (
     <div
       className="modal fade"

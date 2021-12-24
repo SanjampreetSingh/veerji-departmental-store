@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useHistory } from "react-router-dom"
 import jwt_decode from "jwt-decode"
 
@@ -20,6 +20,7 @@ export default function Login() {
     password: "",
   })
 
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(errorObj)
   const [submitError, setSubmitError] = useState("")
   const [formState, setFormState] = useState(formObj)

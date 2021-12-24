@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import GeoLocationIcon from "../../../../assets/icons/GeoLocationIcon"
 
 export default function FormLocalityComponent(props) {

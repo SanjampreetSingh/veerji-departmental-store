@@ -31,7 +31,7 @@ export default function EditCustomerComponent(props) {
                   />
                 </div>
                 <small className="form-text text-muted">
-                  Please enter customer's name
+                  Please enter customer name
                 </small>
               </div>
             </div>
@@ -56,7 +56,7 @@ export default function EditCustomerComponent(props) {
                   />
                 </div>
                 <small className="form-text text-muted">
-                  Please enter customer's telephone
+                  Please enter customer telephone
                 </small>
               </div>
               <div className="col">
@@ -79,7 +79,7 @@ export default function EditCustomerComponent(props) {
                   />
                 </div>
                 <small className="form-text text-muted">
-                  Please enter customer's email
+                  Please enter customer email
                 </small>
               </div>
             </div>
@@ -129,7 +129,7 @@ export default function EditCustomerComponent(props) {
                   ))}
                 </select>
                 <small className="form-text text-muted">
-                  Please select customer's locality
+                  Please select customer locality
                 </small>
                 <div className="invalid-feedback">
                   Please select a valid locality.

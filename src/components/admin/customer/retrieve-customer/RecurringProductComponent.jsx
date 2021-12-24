@@ -4,7 +4,7 @@ export default function RecurringProductComponent(props) {
     recurringProduct,
     handleRecurringArray,
     handleRecurringObj,
-    handleRecurringSubmit,
+    handleSubmit,
   } = props
   return (
     <div className="row align-items-md-stretch">
@@ -87,7 +87,7 @@ export default function RecurringProductComponent(props) {
                 <button
                   type="button"
                   className="btn btn-primary"
-                  onClick={handleRecurringSubmit}
+                  onClick={handleSubmit}
                 >
                   Update
                 </button>

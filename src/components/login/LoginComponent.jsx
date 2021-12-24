@@ -1,5 +1,6 @@
 export default function LoginComponent(props) {
   // TODO: handle error message
+  // eslint-disable-next-line no-unused-vars
   const { handleChange, handleSubmit, error, submitError } = props
   return (
     <>

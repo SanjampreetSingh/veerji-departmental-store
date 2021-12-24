@@ -34,24 +34,13 @@ export const deleteProduct = id => ApiCall(action.DELETE, `product/${id}/`)
 
 // User API
 export const getAllUser = () => ApiCall(action.GET, "user/")
-export const getUser = id => ApiCall(action.GET, `user/${id}/`)
+export const getUser = userId => ApiCall(action.GET, `user/${userId}/`)
 export const addUser = data => ApiCall(action.POST, "user/", data)
-export const deleteUser = id => ApiCall(action.DELETE, `user/${id}/`)
+export const updateUser = (userId, data) =>
+    ApiCall(action.PUT, `user/${userId}/`, data)
 
 // Sale API
 export const getAllSale = () => ApiCall(action.GET, "sale/")
 export const getSale = id => ApiCall(action.GET, `sale/${id}/`)
 export const addSale = data => ApiCall(action.POST, "sale/", data)
 export const deleteSale = id => ApiCall(action.DELETE, `sale/${id}/`)
-
-// RecurringProduct API
-export const getAllRecurringProduct = () =>
-    ApiCall(action.GET, "recurring_product/")
-export const getRecurringProduct = userId =>
-    ApiCall(action.GET, `recurring_product/${userId}/`)
-export const addRecurringProduct = data =>
-    ApiCall(action.POST, "recurring_product/", data)
-export const updateRecurringProduct = (userId, data) =>
-    ApiCall(action.PUT, `recurring_product/${userId}/`, data)
-export const deleteRecurringProduct = userId =>
-    ApiCall(action.DELETE, `recurring_product/${userId}/`)

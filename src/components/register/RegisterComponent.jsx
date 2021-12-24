@@ -1,4 +1,5 @@
 export default function RegisterComponent(props) {
+  // eslint-disable-next-line no-unused-vars
   const { locality, error, handleChange, handleSubmit, submitError } = props
   return (
     // TODO: Add validations in UI

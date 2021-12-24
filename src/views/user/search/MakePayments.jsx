@@ -2,7 +2,7 @@ import SearchCover from "../../../components/users/search-cover/SearchCover"
 import UserCard from "../../../components/users/user-card/UserCard"
 import UserPaymentCard from "../../../components/users/user-payment-card/UserPaymentCard"
 
-export default function MakePayments(params) {
+export default function MakePayments() {
   return (
     <>
       <div className="container mb-5">
