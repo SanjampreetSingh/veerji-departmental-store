@@ -37,7 +37,7 @@ export default function Register() {
   const createReccuringProduct = userId => {
     addRecurringProduct({
       user: userId,
-      product: [{ recurringIndex: "", productId: "", quantity: "" }],
+      product: '[{ recurringIndex: "", productId: "", quantity: "" }]',
     }).then(res => {
       if (res?.error) {
         setSubmitError(res?.error)

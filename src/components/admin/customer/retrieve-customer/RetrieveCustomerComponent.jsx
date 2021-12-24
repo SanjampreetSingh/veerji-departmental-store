@@ -11,6 +11,7 @@ export default function RetrieveCustomerComponent(props) {
     setEditButton,
     handleRecurringArray,
     handleRecurringObj,
+    handleRecurringSubmit,
   } = props
   return (
     <>
@@ -26,6 +27,7 @@ export default function RetrieveCustomerComponent(props) {
         recurringProduct={recurringProduct}
         handleRecurringArray={handleRecurringArray}
         handleRecurringObj={handleRecurringObj}
+        handleRecurringSubmit={handleRecurringSubmit}
       />
     </>
   )

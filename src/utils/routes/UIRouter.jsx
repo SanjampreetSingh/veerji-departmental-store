@@ -60,7 +60,7 @@ export default function UIRouter() {
         <AdminRouter exact path="/admin/customer" component={ListCustomer} />
         <AdminRouter
           exact
-          path="/admin/customer/details/:id"
+          path="/admin/customer/details/:userId"
           component={RetrieveCustomer}
         />
         <AdminRouter exact path="/admin/locality" component={ListLocality} />

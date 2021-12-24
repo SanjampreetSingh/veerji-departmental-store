@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react"
-import { useHistory } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 
 import RetrieveCustomerComponent from "../../../../components/admin/customer/retrieve-customer/RetrieveCustomerComponent"
 import {
   getUser,
   getAllListProducts,
   getRecurringProduct,
+  updateRecurringProduct,
 } from "../../../../services/services"
 import { generateRecurringId } from "../../../../utils/common/common"
 
 export default function RetrieveCustomer() {
-  let userId = window.location.href.split("/").pop()
+  let { userId } = useParams()
   const history = useHistory()
 
   const recurringObj = {
@@ -19,38 +20,18 @@ export default function RetrieveCustomer() {
     quantity: "",
   }
 
-  const formObj = Object.freeze({
-    product: "",
-    user: userId,
-  })
-
-  const errorsObj = Object.freeze({
-    error: false,
-    product: "",
-    user: userId,
-  })
-
   const [error, setError] = useState(false)
   const [user, setUser] = useState([])
   const [product, setProduct] = useState([])
   const [recurringProduct, setRecurringProduct] = useState([])
   const [editButton, setEditButton] = useState(false)
-  const [formState, setFormState] = useState(formObj)
-  const [errorObj, setErrorObj] = useState(errorsObj)
+  const [submitError, setSubmitError] = useState("");
 
   useEffect(() => {
     loadData()
     loadProductData()
     loadRecurringProductData()
   }, [])
-
-  useEffect(() => {
-    handleRecurringChange()
-  }, [recurringProduct])
-
-  useEffect(() => {
-    console.log(formState)
-  }, [formState])
 
   const loadData = () => {
     getUser(userId)
@@ -73,15 +54,11 @@ export default function RetrieveCustomer() {
       .catch(error => setError(error))
   }
 
-  const handleRecurringChange = () => {
-    setFormState(prev => ({
-      ...prev,
-      product: recurringProduct,
-    }))
-  }
-
-  const handleRecurringSubmit = e => {
-    addUser()
+  const handleRecurringSubmit = () => {
+    updateRecurringProduct(userId, {
+      product: JSON.stringify(recurringProduct),
+      user: userId,
+    })
       .then(res => {
         if (res?.error) {
           setSubmitError(res.error)
@@ -128,6 +105,7 @@ export default function RetrieveCustomer() {
       setEditButton={setEditButton}
       handleRecurringArray={handleRecurringArray}
       handleRecurringObj={handleRecurringObj}
+      handleRecurringSubmit={handleRecurringSubmit}
     />
   )
 }

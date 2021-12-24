@@ -47,9 +47,11 @@ export const deleteSale = id => ApiCall(action.DELETE, `sale/${id}/`)
 // RecurringProduct API
 export const getAllRecurringProduct = () =>
     ApiCall(action.GET, "recurring_product/")
-export const getRecurringProduct = id =>
-    ApiCall(action.GET, `recurring_product/${id}/`)
+export const getRecurringProduct = userId =>
+    ApiCall(action.GET, `recurring_product/${userId}/`)
 export const addRecurringProduct = data =>
     ApiCall(action.POST, "recurring_product/", data)
-export const deleteRecurringProduct = id =>
-    ApiCall(action.DELETE, `recurring_product/${id}/`)
+export const updateRecurringProduct = (userId, data) =>
+    ApiCall(action.PUT, `recurring_product/${userId}/`, data)
+export const deleteRecurringProduct = userId =>
+    ApiCall(action.DELETE, `recurring_product/${userId}/`)
