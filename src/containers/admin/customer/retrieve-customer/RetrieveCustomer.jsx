@@ -19,11 +19,24 @@ export default function RetrieveCustomer() {
     quantity: "",
   }
 
+  const formObj = Object.freeze({
+    product: "",
+    user: userId,
+  })
+
+  const errorsObj = Object.freeze({
+    error: false,
+    product: "",
+    user: userId,
+  })
+
   const [error, setError] = useState(false)
   const [user, setUser] = useState([])
   const [product, setProduct] = useState([])
   const [recurringProduct, setRecurringProduct] = useState([])
   const [editButton, setEditButton] = useState(false)
+  const [formState, setFormState] = useState(formObj)
+  const [errorObj, setErrorObj] = useState(errorsObj)
 
   useEffect(() => {
     loadData()
@@ -32,8 +45,12 @@ export default function RetrieveCustomer() {
   }, [])
 
   useEffect(() => {
-    console.log(recurringProduct)
+    handleRecurringChange()
   }, [recurringProduct])
+
+  useEffect(() => {
+    console.log(formState)
+  }, [formState])
 
   const loadData = () => {
     getUser(userId)
@@ -48,12 +65,31 @@ export default function RetrieveCustomer() {
   }
 
   const loadRecurringProductData = () => {
-    getRecurringProduct(id)
+    getRecurringProduct(userId)
       .then(res => {
         let data = JSON.parse(res?.data?.product)
         setRecurringProduct(data)
       })
       .catch(error => setError(error))
+  }
+
+  const handleRecurringChange = () => {
+    setFormState(prev => ({
+      ...prev,
+      product: recurringProduct,
+    }))
+  }
+
+  const handleRecurringSubmit = e => {
+    addUser()
+      .then(res => {
+        if (res?.error) {
+          setSubmitError(res.error)
+        } else {
+          history.push("/admin/customer/details/" + userId)
+        }
+      })
+      .catch(error => setSubmitError(error))
   }
 
   const handleRecurringArray = (key, idx = "", obj = recurringObj) => {
