@@ -41,7 +41,10 @@ export default function Header() {
 
         <div className="navbar-nav">
           <div className="nav-item text-nowrap">
-            <Link className="nav-link px-3" to="/logout">
+            <Link
+              className="nav-link px-2 me-2 border border-white rounded"
+              to="/logout"
+            >
               Sign out
             </Link>
           </div>

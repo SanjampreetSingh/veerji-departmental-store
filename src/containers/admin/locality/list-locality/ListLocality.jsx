@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react"
 
 import ListLocalityComponent from "../../../../components/admin/locality/list-locality/ListLocalityComponent"
-import { getAllLocality, deleteLocality } from "../../../../services/services"
+import { getAllLocality } from "../../../../services/services"
 
 export default function ListLocality() {
   const [error, setError] = useState(false)
   const [locality, setLocality] = useState([])
-  const [deleteResponse, setDeleteResponse] = useState([])
 
   useEffect(() => {
     loadData()
@@ -24,24 +23,5 @@ export default function ListLocality() {
       .catch(error => setError(error))
   }
 
-  const handleDelete = id => {
-    deleteLocality(id)
-      .then(res => {
-        if (res?.error) {
-          setError(res.error)
-        } else {
-          setDeleteResponse(res?.data)
-          loadData()
-        }
-      })
-      .catch(error => setDeleteResponse(error))
-  }
-  return (
-    <ListLocalityComponent
-      locality={locality}
-      getError={error}
-      handleDelete={handleDelete}
-      deleteResponse={deleteResponse}
-    />
-  )
+  return <ListLocalityComponent locality={locality} getError={error} />
 }

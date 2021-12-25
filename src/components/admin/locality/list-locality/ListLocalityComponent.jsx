@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export default function ListLocalityComponent(props) {
   // eslint-disable-next-line no-unused-vars
-  const { locality, deleteData, getError, deleteResponse } = props
+  const { locality, getError } = props
 
   return (
     <>
@@ -69,13 +69,6 @@ export default function ListLocalityComponent(props) {
                   >
                     Edit
                   </Link>
-                  <button
-                    type="button"
-                    className="btn btn-outline-danger btn-sm"
-                    onClick={() => deleteData(data.id)}
-                  >
-                    Delete
-                  </button>
                 </td>
               </tr>
             ))}

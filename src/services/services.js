@@ -15,7 +15,6 @@ export const getAllLocality = () => ApiCall(action.GET, "locality/")
 export const getAllLocalities = () => ApiCall(action.GET, "list/locality/")
 export const getLocality = id => ApiCall(action.GET, `locality/${id}/`)
 export const addLocality = data => ApiCall(action.POST, "locality/", data)
-export const deleteLocality = id => ApiCall(action.DELETE, `locality/${id}/`)
 export const editLocality = (id, data) =>
     ApiCall(action.PUT, `locality/${id}/`, data)
 
@@ -23,14 +22,12 @@ export const editLocality = (id, data) =>
 export const getAllCategory = () => ApiCall(action.GET, "category/")
 export const getCategory = id => ApiCall(action.GET, `category/${id}/`)
 export const addCategory = data => ApiCall(action.POST, "category/", data)
-export const deleteCategory = id => ApiCall(action.DELETE, `category/${id}/`)
 
 // Product API
 export const getAllProduct = () => ApiCall(action.GET, "product/")
 export const getAllListProducts = () => ApiCall(action.GET, "list/product/")
 export const getProduct = id => ApiCall(action.GET, `product/${id}/`)
 export const addProduct = data => ApiCall(action.POST, "product/", data)
-export const deleteProduct = id => ApiCall(action.DELETE, `product/${id}/`)
 
 // User API
 export const getAllUser = () => ApiCall(action.GET, "user/")
