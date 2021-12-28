@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import BootstrapTable from "react-bootstrap-table-next"
 
-export default function SaleComponent(props) {
+export default function ListSaleComponent(props) {
   const { sale, columns, defaultSorted } = props
 
   return (
@@ -19,9 +19,9 @@ export default function SaleComponent(props) {
         <div className="col" />
         <div className="col" />
         <div className="col" />
-        <div className="col">
+        <div className="col mb-5">
           <label htmlFor="search" className="form-label">
-            Search by name, phone or email
+            Search by
           </label>
           <input
             type="text"
@@ -29,7 +29,7 @@ export default function SaleComponent(props) {
             name="search"
             id="search"
             aria-describedby="search"
-            placeholder="Search by name, phone or email"
+            placeholder="Name or Phone"
             onEnter={e => console.log(e.target.value)}
           />
           <small id="search" className="form-text text-muted">

@@ -21,10 +21,11 @@ import Register from "../../containers/register/Register"
 // admin view
 import AdminDashboard from "../../containers/admin/dashboard/AdminDashboard"
 import ListCustomer from "../../containers/admin/customer/list-customer/ListCustomer"
-import AddLocality from "../../containers/admin/locality/add-locality/AddLocality"
-import ListLocality from "../../containers/admin/locality/list-locality/ListLocality"
-import EditLocality from "../../containers/admin/locality/edit-locality/EditLocality"
 import RetrieveCustomer from "../../containers/admin/customer/retrieve-customer/RetrieveCustomer"
+import ListLocality from "../../containers/admin/locality/list-locality/ListLocality"
+import AddLocality from "../../containers/admin/locality/add-locality/AddLocality"
+import EditLocality from "../../containers/admin/locality/edit-locality/EditLocality"
+import ListSale from "../../containers/admin/sale/list-sale/ListSale"
 
 export default function UIRouter() {
   return (
@@ -70,6 +71,7 @@ export default function UIRouter() {
           path="/admin/locality/:id"
           component={EditLocality}
         />
+        <AdminRouter exact path="/admin/sale" component={ListSale} />
         {/* Default Route */}
         <Route>
           <Redirect to="/" />
