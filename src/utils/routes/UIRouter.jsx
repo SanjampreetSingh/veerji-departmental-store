@@ -19,7 +19,7 @@ import Login from "../../containers/login/Login"
 import Logout from "../../containers/logout/Logout"
 import Register from "../../containers/register/Register"
 // admin view
-import AdminHome from "../../views/admin/admin-home/AdminHome"
+import AdminDashboard from "../../containers/admin/dashboard/AdminDashboard"
 import ListCustomer from "../../containers/admin/customer/list-customer/ListCustomer"
 import AddLocality from "../../containers/admin/locality/add-locality/AddLocality"
 import ListLocality from "../../containers/admin/locality/list-locality/ListLocality"
@@ -54,9 +54,9 @@ export default function UIRouter() {
         <Route exact path="/logout" component={Logout} />
         {/* Admin Routes */}
         <Route exact path="/admin">
-          <Redirect to="/admin/home" />
+          <Redirect to="/admin/dashboard" />
         </Route>
-        <AdminRouter exact path="/admin/home" component={AdminHome} />
+        <AdminRouter exact path="/admin/dashboard" component={AdminDashboard} />
         <AdminRouter exact path="/admin/customer" component={ListCustomer} />
         <AdminRouter
           exact

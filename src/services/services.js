@@ -41,3 +41,5 @@ export const getAllSale = () => ApiCall(action.GET, "sale/")
 export const getSale = id => ApiCall(action.GET, `sale/${id}/`)
 export const addSale = data => ApiCall(action.POST, "sale/", data)
 export const deleteSale = id => ApiCall(action.DELETE, `sale/${id}/`)
+export const addRecurringSale = () =>
+    ApiCall(action.POST, "add/sale/recurring_product/")

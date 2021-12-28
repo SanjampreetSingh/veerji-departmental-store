@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import CustomerIcon from "../../../../assets/icons/CustomerIcon"
 import FeatherHomeIcon from "../../../../assets/icons/FeatherHomeIcon"
 import GeoLocationIcon from "../../../../assets/icons/GeoLocationIcon"
+import ReceiptIcon from "../../../../assets/icons/ReceiptIcon"
 
 export default function Sidebar() {
   return (
@@ -13,20 +14,26 @@ export default function Sidebar() {
             <Link
               className="nav-link active"
               aria-current="page"
-              to="/admin/home"
+              to="/admin/dashboard"
             >
               <FeatherHomeIcon />
               Dashboard
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/admin/customer">
+            <Link className="nav-link" aria-current="page" to="/admin/customer">
               <CustomerIcon />
-              Customers
+              Customer
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/admin/locality">
+            <Link className="nav-link" aria-current="page" to="/admin/sale">
+              <ReceiptIcon />
+              Sales
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" aria-current="page" to="/admin/locality">
               <GeoLocationIcon />
               Locality
             </Link>
