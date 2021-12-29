@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import BootstrapTable from "react-bootstrap-table-next"
+import cellEditFactory from "react-bootstrap-table2-editor"
 
 export default function ListSaleComponent(props) {
   const { sale, columns, defaultSorted } = props
@@ -30,7 +31,7 @@ export default function ListSaleComponent(props) {
             id="search"
             aria-describedby="search"
             placeholder="Name or Phone"
-            onEnter={e => console.log(e.target.value)}
+            onKeyDown={e => console.log(e.target.value)}
           />
           <small id="search" className="form-text text-muted">
             Type and press enter for search.
@@ -39,10 +40,16 @@ export default function ListSaleComponent(props) {
       </div>
       <BootstrapTable
         bootstrap4
+        striped
+        hover
         keyField="id"
         data={sale}
         columns={columns}
         defaultSorted={defaultSorted}
+        cellEdit={cellEditFactory({
+          mode: "click",
+          blurToSave: true,
+        })}
       />
       {/* <div className="table-responsive border-top mt-2">
         <table className="table">
