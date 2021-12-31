@@ -42,6 +42,7 @@ export default function ListSaleComponent(props) {
         bootstrap4
         striped
         hover
+        condensed
         keyField="id"
         data={sale}
         columns={columns}
@@ -50,6 +51,7 @@ export default function ListSaleComponent(props) {
           mode: "click",
           blurToSave: true,
         })}
+        noDataIndication="Data loading..."
       />
       {/* <div className="table-responsive border-top mt-2">
         <table className="table">

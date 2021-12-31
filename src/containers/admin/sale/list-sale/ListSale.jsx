@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 
 import ListSaleComponent from "../../../../components/admin/sale/list-sale/ListSaleComponent"
-import { getAllSale } from "../../../../services/services"
+import { deleteSale, getAllSale } from "../../../../services/services"
 
 export default function ListSale() {
   const [error, setError] = useState(false)
@@ -19,6 +19,18 @@ export default function ListSale() {
           setError(res.error)
         } else {
           setSale(res?.data)
+        }
+      })
+      .catch(error => setError(error))
+  }
+
+  const deleteData = id => {
+    deleteSale(id)
+      .then(res => {
+        if (res?.error) {
+          setError(res.error)
+        } else {
+          loadData()
         }
       })
       .catch(error => setError(error))
@@ -42,7 +54,12 @@ export default function ListSale() {
         >
           Edit
         </a>
-        <a className="btn btn-danger btn-sm " href="#" role="button">
+        <a
+          className="btn btn-danger btn-sm "
+          href="#"
+          role="button"
+          onClick={() => deleteData(row?.id)}
+        >
           Delete
         </a>
       </div>
@@ -90,7 +107,7 @@ export default function ListSale() {
 
   const defaultSorted = [
     {
-      dataField: "user_phone",
+      dataField: "created",
       order: "desc",
     },
   ]
